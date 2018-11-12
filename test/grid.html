@@ -41,28 +41,17 @@
     <div class="item13">13</div>
   </div>
 
-  <script src="../dist/magic-grid.umd.js"></script>
+  <script src="../dist/magic-grid.cjs.js"></script>
   <script>
-    
-    const ready = function (callback) {
-      if (document.readyState != 'loading') callback()
-      else if (document.addEventListener) document.addEventListener('DOMContentLoaded', callback)
-      else document.attachEvent('onreadystatechange', function () {
-        if (document.readyState == 'complete') callback()
-      })
-    }
-
-    ready(function () {
       let magicGrid = new MagicGrid({
         container: '.container',
         animate: true,
         gutter: 30,
         static: true,
         useMin: true
-      })
+      });
 
-      magicGrid.listen()
-    })
+      magicGrid.listen();
   </script>
 
 </body>
