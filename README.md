@@ -37,7 +37,8 @@ magicGrid.listen();
 
 #### MagicGrid(config)
  > config (required): Configuration object
- 
+
+The MagicGrid constructor. Initializes the grid with a configuration object.
 ```javascript
 let magicGrid = new MagicGrid({
   container: "#container", // Required. Class or id of the container.
@@ -45,10 +46,10 @@ let magicGrid = new MagicGrid({
   items: 30, // Required for dynamic pages. Number of items in the container.
   gutter: 30, // Optional. Space between items. Default: 25(px)
   maxColumns: 5, // Maximum number of colums. Default: Infinite
+  useMin: true, // Append next element to the shortest column. Default: false.
+  animate: true, // Animate item positioning. Default: false.
 });
 ```
-
-Constructor for the MagicGrid class
 
 #### .listen()
 Positions the items and listens for changes to the window size. All items are repositioned whenever the window is resized.
