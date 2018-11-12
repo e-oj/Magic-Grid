@@ -1,5 +1,5 @@
-![MIT License](https://img.shields.io/npm/l/magic-grid.svg?style=for-the-badge)
-![Version](https://img.shields.io/npm/v/magic-grid.svg?style=for-the-badge)
+[![MIT License](https://img.shields.io/npm/l/magic-grid.svg?style=for-the-badge)](https://www.npmjs.com/package/magic-grid)
+[![Version](https://img.shields.io/npm/v/magic-grid.svg?style=for-the-badge)](https://www.npmjs.com/package/magic-grid)
 
 # Magic Grid
 ## A simple, lightweight Javascript library for dynamic grid layouts.
