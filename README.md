@@ -6,8 +6,31 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 <image src="https://drive.google.com/uc?id=172ESPZDwQIf7vLMelun-_4RaWD_-j94-" alt="demo.gif" width="850"></img>
 
 ### Getting Started:
+#### Step 1
 ```
 npm install magic-grid
+```
+
+#### Step 2
+```html
+<script src="/node_modules/magic-grid/dist/magic-grid.js">
+```
+
+or
+
+```html
+<script src="/node_modules/magic-grid/dist/magic-grid.min.js">
+```
+
+#### Step 3
+You're good to go! The library can be referenced via the global variable, MagicGrid.
+
+```html
+<script>
+  let magicGrid = new MagicGrid(...);
+  
+  magicGrid.listen();
+</script>
 ```
 
 ### Usage:
