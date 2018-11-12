@@ -1,6 +1,6 @@
 {
   "name": "magic-grid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Super lightweight javascript library for dynamic grid layouts.",
   "main": "dist/magic-grid.min.js",
   "scripts": {
