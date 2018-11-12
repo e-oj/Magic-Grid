@@ -24,7 +24,7 @@ magicGrid.listen();
 ```
 
 #### For dynamic content
-If the container relies on data from an api, or experiences a delay, for whatever reason, before it can render its content in the DOM, you need to let the grid know how many items to expect:
+If the container relies on data from an api, or experiences a delay, for whatever reason, before it can render its content in the DOM, you need to let the grid know the number of items to expect:
 ```javascript
 let magicGrid = new MagicGrid({
   container: "#container", // Required. Can be class or id selector
