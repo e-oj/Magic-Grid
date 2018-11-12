@@ -1,0 +1,42 @@
+{
+  "name": "magic-grid",
+  "version": "0.0.0",
+  "description": "Super lightweight javascript library for dynamic grid layouts.",
+  "main": "dist/magic-grid.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "make": "cross-env webpack --mode=none --progress --hide-modules",
+    "make-min": "MIN=yes cross-env webpack --mode=none --progress --hide-modules",
+    "build": "npm run make && npm run make-min"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e-oj/Magic-Grid.git"
+  },
+  "keywords": [
+    "js",
+    "grid",
+    "javascript",
+    "grid",
+    "grid",
+    "grid",
+    "layout"
+  ],
+  "author": "Emmanuel Olaojo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/e-oj/Magic-Grid/issues"
+  },
+  "homepage": "https://github.com/e-oj/Magic-Grid#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
+    "babel-loader": "^8.0.4",
+    "cross-env": "^5.2.0",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
