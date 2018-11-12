@@ -85,3 +85,5 @@ magicGrid.listen();
 // reposition
 magicGrid.positionItems();
 ```
+
+---
