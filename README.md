@@ -1,3 +1,6 @@
+![MIT License](https://img.shields.io/npm/l/magic-grid.svg?style=for-the-badge)
+![Version](https://img.shields.io/npm/v/magic-grid.svg?style=for-the-badge)
+
 # Magic Grid
 ## A simple, lightweight Javascript library for dynamic grid layouts.
 
@@ -7,7 +10,7 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 #### [Sample Usage](https://github.com/e-oj/Magic-Grid/blob/master/test/grid.html)
 
-<image src="https://drive.google.com/uc?id=172ESPZDwQIf7vLMelun-_4RaWD_-j94-" alt="demo.gif" width="850"></img>
+<img src="https://drive.google.com/uc?id=172ESPZDwQIf7vLMelun-_4RaWD_-j94-" alt="demo.gif" width="850"></img>
 
 ### Getting Started:
 #### Step 1
