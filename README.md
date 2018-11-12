@@ -5,6 +5,8 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 **Note: Every item in the grid must have the same width**
 
+#### [Sample Usage](https://github.com/e-oj/Magic-Grid/blob/master/test/grid.html)
+
 <image src="https://drive.google.com/uc?id=172ESPZDwQIf7vLMelun-_4RaWD_-j94-" alt="demo.gif" width="850"></img>
 
 ### Getting Started:
@@ -21,13 +23,13 @@ npm install magic-grid
 Add the script to your index.html:
 
 ```html
-<script src="/node_modules/magic-grid/dist/magic-grid.js">
+<script src="node_modules/magic-grid/dist/magic-grid.js">
 ```
 
 or
 
 ```html
-<script src="/node_modules/magic-grid/dist/magic-grid.min.js">
+<script src="node_modules/magic-grid/dist/magic-grid.min.js">
 ```
 
 #### Step 3
