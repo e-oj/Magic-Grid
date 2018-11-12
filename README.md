@@ -1,7 +1,7 @@
 # Magic Grid
 ## A simple, lightweight Javascript library for dynamic grid layouts.
 
-Creating a dynamic grid layout has never been easier. With Magic Grid, all you have to do is specify a container, and listen for changes. A few other configuration options are available for convenience but it's all very simple.
+Creating a dynamic grid layout has never been easier. With Magic Grid, all you have to do is specify a container and listen for changes. A few other configuration options are available for convenience but it's all very simple.
 
 <image src="https://drive.google.com/uc?id=172ESPZDwQIf7vLMelun-_4RaWD_-j94-" alt="demo.gif" width="850"></img>
 
