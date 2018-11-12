@@ -7,11 +7,17 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 ### Getting Started:
 #### Step 1
+
+Get Magic Grid:
+
 ```
 npm install magic-grid
 ```
 
 #### Step 2
+
+Add the script to your index.html:
+
 ```html
 <script src="/node_modules/magic-grid/dist/magic-grid.js">
 ```
@@ -23,6 +29,7 @@ or
 ```
 
 #### Step 3
+
 You're good to go! The library can be referenced via the global variable, MagicGrid.
 
 ```html
