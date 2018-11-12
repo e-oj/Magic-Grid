@@ -3,6 +3,8 @@
 
 Creating a dynamic grid layout has never been easier. With Magic Grid, all you have to do is specify a container, and listen for changes. A few other configuration options are available for convenience but it's all very simple.
 
+![demo.gif](drive.google.com/uc?id=172ESPZDwQIf7vLMelun-_4RaWD_-j94-)
+
 ### Getting Started:
 ```
 npm install magic-grid
