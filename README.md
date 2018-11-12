@@ -21,13 +21,13 @@ npm install magic-grid
 Add the script to your index.html:
 
 ```html
-<script src="/node_modules/magic-grid/dist/magic-grid.js">
+<script src="node_modules/magic-grid/dist/magic-grid.js">
 ```
 
 or
 
 ```html
-<script src="/node_modules/magic-grid/dist/magic-grid.min.js">
+<script src="node_modules/magic-grid/dist/magic-grid.min.js">
 ```
 
 #### Step 3
