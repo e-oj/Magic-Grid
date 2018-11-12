@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Magic Grid</title>
+
+  <meta charset="UTF-8">
+  <title>Magic Grid</title>
+
+  <style>
+    .container div {
+      width: 280px;
+      height: 500px;
+      background-color: antiquewhite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+    }
+
+    .container .item1 { height: 200px; }
+    .container .item4 { height: 800px; }
+    .container .item6 { height: 600px; }
+    .container .item11 { height: 400px; }
+  </style>
+
 </head>
 <body>
-<div id="container">
+
+  <div class="container">
     <div class="item1">1</div>
     <div class="item2">2</div>
     <div class="item3">3</div>
@@ -19,47 +39,20 @@
     <div class="item11">11</div>
     <div class="item12">12</div>
     <div class="item13">13</div>
-</div>
+  </div>
 
-<style>
-    #container div{
-        width: 280px;
-        height: 500px;
-        background-color: antiquewhite;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 8px;
-    }
-
-    #container .item1{
-        height: 200px;
-    }
-
-    #container .item4{
-        height: 800px;
-    }
-
-    #container .item6{
-        height: 600px;
-    }
-
-    #container .item11{
-        height: 400px;
-    }
-</style>
-
-<script src="../dist/magic-grid.min.js"></script>
-<script>
+  <script src="../dist/magic-grid.js"></script>
+  <script>
     let magicGrid = new MagicGrid({
-      container: "#container",
+      container: '.container',
       animate: true,
       gutter: 30,
       static: true,
       useMin: true
-    });
+    })
 
-    magicGrid.listen();
-</script>
+    magicGrid.listen()
+  </script>
+
 </body>
 </html>
