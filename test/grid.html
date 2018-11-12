@@ -23,12 +23,13 @@
 
 <style>
     #container div{
-        width: 200px;
+        width: 280px;
         height: 500px;
         background-color: antiquewhite;
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: 8px;
     }
 
     #container .item1{
@@ -48,13 +49,14 @@
     }
 </style>
 
-<script src="../dist/magic-grid.js"></script>
+<script src="../dist/magic-grid.min.js"></script>
 <script>
     let magicGrid = new MagicGrid({
       container: "#container",
       animate: true,
       gutter: 30,
       static: true,
+      useMin: true
     });
 
     magicGrid.listen();

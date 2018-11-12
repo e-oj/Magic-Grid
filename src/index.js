@@ -24,12 +24,12 @@ export default class MagicGrid {
     this.containerClass = config.container;
     this.container = this.$(config.container);
     this.item = this.container.children();
+    this.static = config.static || false;
     this.size = config.items;
     this.gutter = config.gutter || 25;
     this.maxColumns = config.maxColumns || false;
     this.useMin = config.useMin || false;
     this.animate = config.animate || false;
-    this.static = config.static || false;
     this.started = false;
 
     this._init();
