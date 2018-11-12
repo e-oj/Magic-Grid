@@ -114,9 +114,7 @@ export default class MagicGrid {
     let self = this;
     let {cols, wSpace} = this._setup();
 
-    console.log(wSpace);
     wSpace = Math.floor(wSpace/2);
-    console.log(wSpace);
 
     self.item.each(function(i){
       let min = self._nextCol(cols, i);
@@ -162,8 +160,6 @@ export default class MagicGrid {
     let interval = setInterval(function(){
       self.container = self.$(self.containerClass);
       self.item = self.container.children();
-
-      console.log(self.container.children());
 
       if(self.ready()){
         clearInterval(interval);

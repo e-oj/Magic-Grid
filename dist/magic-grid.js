@@ -244,9 +244,7 @@ function () {
           cols = _this$_setup.cols,
           wSpace = _this$_setup.wSpace;
 
-      console.log(wSpace);
       wSpace = Math.floor(wSpace / 2);
-      console.log(wSpace);
       self.item.each(function (i) {
         var min = self._nextCol(cols, i);
 
@@ -292,7 +290,6 @@ function () {
       var interval = setInterval(function () {
         self.container = self.$(self.containerClass);
         self.item = self.container.children();
-        console.log(self.container.children());
 
         if (self.ready()) {
           clearInterval(interval);
