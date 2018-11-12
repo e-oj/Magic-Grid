@@ -7,32 +7,34 @@
  * grid layout.
  */
 
-import jquery from "jquery";
-import {getMax, checkParams, getMin} from "./utils"
+import {
+  getMax,
+  checkParams,
+  getMin
+} from './utils'
 
-export default class MagicGrid {
+class MagicGrid {
   /**
    * Initializes the necessary variables
    * for a magic grid.
    *
    * @param config - configuration object
    */
-  constructor(config){
-    checkParams(config);
+  constructor (config) {
+    checkParams(config)
 
-    this.$ = jquery;
-    this.containerClass = config.container;
-    this.container = this.$(config.container);
-    this.item = this.container.children();
-    this.static = config.static || false;
-    this.size = config.items;
-    this.gutter = config.gutter || 25;
-    this.maxColumns = config.maxColumns || false;
-    this.useMin = config.useMin || false;
-    this.animate = config.animate || false;
-    this.started = false;
+    this.containerClass = config.container
+    this.container = document.querySelector(config.container)
+    this.item = this.container.children
+    this.static = config.static || false
+    this.size = config.items
+    this.gutter = config.gutter || 25
+    this.maxColumns = config.maxColumns || false
+    this.useMin = config.useMin || false
+    this.animate = config.animate || false
+    this.started = false
 
-    this._init();
+    this.init()
   }
 
   /**
@@ -40,17 +42,19 @@ export default class MagicGrid {
    *
    * @private
    */
-  _init(){
-    if(!this.ready() || this.started) return;
+  init () {
+    if (!this.ready() || this.started) return
 
-    this.container.css({position: "relative"});
-    this.item.css({position: "absolute"});
-
-    if(this.animate){
-      this.item.css({transition: "top,left 0.2s ease"});
+    this.container.style.position = 'relative'
+    for (let i = 0; i < this.item.length; i++) {
+      this.item[i].style.position = 'absolute'
+  
+      if (this.animate) {
+        this.item[i].style.transition = 'top,left 0.2s ease'
+      }
     }
 
-    this.started = true;
+    this.started = true
   }
 
   /**
@@ -59,8 +63,8 @@ export default class MagicGrid {
    * @return width of a column in the grid
    * @private
    */
-  _colWidth(){
-    return this.item.outerWidth() + this.gutter;
+  colWidth () {
+    return this.item[0].getBoundingClientRect().width + this.gutter
   }
 
   /**
@@ -70,22 +74,29 @@ export default class MagicGrid {
    * @return {{cols: Array, wSpace: number}}
    * @private
    */
-  _setup(){
-    let width = this.container.outerWidth();
-    let numCols = Math.floor(width/this._colWidth()) || 1;
-    let cols = [];
+  setup () {
+    let width = this.container.getBoundingClientRect().width
+    let numCols = Math.floor(width / this.colWidth()) || 1
+    let cols = []
 
-    if(this.maxColumns && numCols > this.maxColumns){
-      numCols = this.maxColumns;
+    if (this.maxColumns && numCols > this.maxColumns) {
+      numCols = this.maxColumns
     }
 
-    for(let i = 0; i < numCols; i++){
-      cols[i] = {height: 0, top: 0, index: i}
+    for (let i = 0; i < numCols; i++) {
+      cols[i] = {
+        height: 0,
+        top: 0,
+        index: i
+      }
     }
 
-    let wSpace = width - numCols * this._colWidth() + this.gutter;
+    let wSpace = width - numCols * this.colWidth() + this.gutter
 
-    return {cols, wSpace};
+    return {
+      cols,
+      wSpace
+    }
   }
 
   /**
@@ -97,12 +108,12 @@ export default class MagicGrid {
    * @return {*} next available column
    * @private
    */
-  _nextCol(cols, i){
-    if(this.useMin){
-      return getMin(cols);
+  nextCol (cols, i) {
+    if (this.useMin) {
+      return getMin(cols)
     }
 
-    return cols[i % cols.length];
+    return cols[i % cols.length]
   }
 
   /**
@@ -110,29 +121,24 @@ export default class MagicGrid {
    * based on their corresponding columns
    * values.
    */
-  positionItems(){
-    let self = this;
-    let {cols, wSpace} = this._setup();
+  positionItems () {
+    let { cols, wSpace } = this.setup()
 
-    wSpace = Math.floor(wSpace/2);
+    wSpace = Math.floor(wSpace / 2)
 
-    self.item.each(function(i){
-      let min = self._nextCol(cols, i);
-      let left = min.index * self._colWidth() + wSpace;
-      let $item = self.$(this);
+    for (let i = 0; i < this.item.length; i++) {
+      let min = this.nextCol(cols, i)
+      let left = min.index * this.colWidth() + wSpace
+      let item = this.item[i]
 
-      $item.css({
-        left: left + "px",
-        top: min.height + min.top + "px"
-      });
+      item.style.left = left + 'px'
+      item.style.top = min.height + min.top + 'px'
 
-      min.height += min.top + $item.outerHeight();
-      min.top = self.gutter;
-    });
+      min.height += min.top + item.getBoundingClientRect().height
+      min.top = this.gutter
+    }
 
-    self.container.css({
-      height: getMax(cols).height,
-    });
+    this.container.style.height = getMax(cols).height
   }
 
   /**
@@ -141,9 +147,9 @@ export default class MagicGrid {
    *
    * @return {Boolean} true if every item is present
    */
-  ready(){
-    if(this.static) return true;
-    return this.container.length > 0 && this.item.length === this.size;
+  ready () {
+    if (this.static) return true
+    return this.container.length > 0 && this.item.length === this.size
   }
 
   /**
@@ -154,21 +160,18 @@ export default class MagicGrid {
    *
    * @private
    */
-  _getReady(){
-    let self = this;
+  getReady () {
+    let interval = setInterval(() => {
+      this.container = document.querySelector(this.containerClass)
+      this.item = this.container.children
 
-    let interval = setInterval(function(){
-      self.container = self.$(self.containerClass);
-      self.item = self.container.children();
+      if (this.ready()) {
+        clearInterval(interval)
 
-      if(self.ready()){
-        clearInterval(interval);
-
-        self._init();
-        self.listen();
+        this.init()
+        this.listen()
       }
-
-    }, 100);
+    }, 100)
   }
 
   /**
@@ -176,19 +179,15 @@ export default class MagicGrid {
    * repositions them whenever the
    * window size changes.
    */
-  listen(){
-    let self = this;
+  listen () {
+    if (this.ready()) {
+      this.positionItems()
 
-    if(self.ready()){
-      self.positionItems();
-
-      self.$(window).resize(function(){
-        setTimeout(function(){
-          self.positionItems();
-        }, 200);
-      });
-    }
-
-    else self._getReady();
+      window.addEventListener('resize', () => {
+        setTimeout(this.positionItems(), 200)
+      })
+    } else this.getReady()
   }
 }
+
+export default MagicGrid
