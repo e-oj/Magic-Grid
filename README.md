@@ -14,7 +14,7 @@ If your container doesn't have any dynamically loaded content i.e., all its chil
 ```javascript
 let magicGrid = new MagicGrid({
   container: "#container", // Required. Can be class or id selector
-  static: true, // Required for static pages
+  static: true, // Required for static content
   animate: true, // Optional
 });
 
@@ -26,7 +26,7 @@ If the container relies on data from an api, or experiences a delay, for whateve
 ```javascript
 let magicGrid = new MagicGrid({
   container: "#container", // Required. Can be class or id selector
-  items: 20, // For a grid with 20 items. Required for dynamic pages
+  items: 20, // For a grid with 20 items. Required for dynamic content
   animate: true, // Optional
 });
 
@@ -42,8 +42,8 @@ The MagicGrid constructor. Initializes the grid with a configuration object.
 ```javascript
 let magicGrid = new MagicGrid({
   container: "#container", // Required. Class or id of the container.
-  static: "false", // Required for static pages. Default: false.
-  items: 30, // Required for dynamic pages. Number of items in the container.
+  static: "false", // Required for static content. Default: false.
+  items: 30, // Required for dynamic content. Number of items in the container.
   gutter: 30, // Optional. Space between items. Default: 25(px)
   maxColumns: 5, // Maximum number of colums. Default: Infinite
   useMin: true, // Append next element to the shortest column. Default: false.
@@ -56,7 +56,7 @@ Positions the items and listens for changes to the window size. All items are re
 ```javascript
 let magicGrid = new MagicGrid({
   container: "#container", // Required. Can be class or id selector
-  static: true, // Required for static pages
+  static: true, // Required for static content
   animate: true, // Optional
 });
 
