@@ -26,25 +26,29 @@ npm install magic-grid
 Add the script to your index.html:
 
 ```html
-<script src="node_modules/magic-grid/dist/magic-grid.js">
+<script src="node_modules/magic-grid/dist/magic-grid.cjs.js">
+```
+
+or (minified)
+
+```html
+<script src="node_modules/magic-grid/dist/magic-grid.umd.js">
 ```
 
 or
 
-```html
-<script src="node_modules/magic-grid/dist/magic-grid.min.js">
+```javascript
+let MagicGrid = require("magic-grid");
 ```
 
 #### Step 3
 
 You're good to go! The library can be referenced via the global variable, MagicGrid.
 
-```html
-<script>
-  let magicGrid = new MagicGrid(...);
-  
-  magicGrid.listen();
-</script>
+```javascript
+let magicGrid = new MagicGrid(...);
+
+magicGrid.listen();
 ```
 
 ### Usage:
