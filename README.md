@@ -11,7 +11,7 @@ npm install magic-grid
 ```
 
 ### Usage:
-#### For static content
+#### Static content
 If your container doesn't have any dynamically loaded content i.e., all its child elements are always in the DOM, you should initialize the grid this way:
 ```javascript
 let magicGrid = new MagicGrid({
@@ -23,7 +23,7 @@ let magicGrid = new MagicGrid({
 magicGrid.listen();
 ```
 
-#### For dynamic content
+#### Dynamic content
 If the container relies on data from an api, or experiences a delay, for whatever reason, before it can render its content in the DOM, you need to let the grid know the number of items to expect:
 ```javascript
 let magicGrid = new MagicGrid({
