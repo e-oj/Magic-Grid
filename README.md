@@ -23,7 +23,7 @@ npm install magic-grid
 
 #### Step 2
 
-Add the script to your index.html:
+Import Magic Grid:
 
 ```html
 <script src="node_modules/magic-grid/dist/magic-grid.cjs.js">
@@ -85,7 +85,7 @@ The MagicGrid constructor. Initializes the grid with a configuration object.
 ```javascript
 let magicGrid = new MagicGrid({
   container: "#container", // Required. Class or id of the container.
-  static: "false", // Required for static content. Default: false.
+  static: false, // Required for static content. Default: false.
   items: 30, // Required for dynamic content. Initial number of items in the container.
   gutter: 30, // Optional. Space between items. Default: 25(px)
   maxColumns: 5, // Maximum number of colums. Default: Infinite
