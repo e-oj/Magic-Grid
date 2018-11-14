@@ -54,8 +54,4 @@ const getMin = cols => {
   return min;
 };
 
-export {
-  checkParams,
-  getMax,
-  getMin
-};
+export {checkParams, getMax, getMin};
