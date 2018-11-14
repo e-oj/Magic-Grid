@@ -10,7 +10,7 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 #### [Sample Usage](https://github.com/e-oj/Magic-Grid/blob/master/test/grid.html)
 
-<img src="https://drive.google.com/uc?id=172ESPZDwQIf7vLMelun-_4RaWD_-j94-" alt="demo.gif" width="850"></img>
+<img src="http://drive.google.com/uc?export=view&id=172ESPZDwQIf7vLMelun-_4RaWD_-j94-" alt="demo" width="850"></img>
 
 ### Getting Started:
 #### Step 1
@@ -23,7 +23,7 @@ npm install magic-grid
 
 #### Step 2
 
-Add the script to your index.html:
+Import Magic Grid:
 
 ```html
 <script src="node_modules/magic-grid/dist/magic-grid.cjs.js">
@@ -85,7 +85,7 @@ The MagicGrid constructor. Initializes the grid with a configuration object.
 ```javascript
 let magicGrid = new MagicGrid({
   container: "#container", // Required. Class or id of the container.
-  static: "false", // Required for static content. Default: false.
+  static: false, // Required for static content. Default: false.
   items: 30, // Required for dynamic content. Initial number of items in the container.
   gutter: 30, // Optional. Space between items. Default: 25(px)
   maxColumns: 5, // Maximum number of colums. Default: Infinite
