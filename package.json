@@ -4,7 +4,7 @@
   "description": "Super lightweight javascript library for dynamic grid layouts.",
   "main": "dist/magic-grid.cjs.js",
   "module": "dist/magic-grid.esm.js",
-  "browser": "dist/magic-grid.umd.js",
+  "browser": "dist/magic-grid.min.js",
   "scripts": {
     "start": "parcel test/index.html",
     "dev": "rollup -w -c rollup.config.js",

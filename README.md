@@ -32,7 +32,7 @@ Import Magic Grid:
 or (minified)
 
 ```html
-<script src="node_modules/magic-grid/dist/magic-grid.umd.js">
+<script src="node_modules/magic-grid/dist/magic-grid.min.js">
 ```
 
 or
@@ -90,7 +90,7 @@ let magicGrid = new MagicGrid({
   gutter: 30, // Optional. Space between items. Default: 25(px)
   maxColumns: 5, // Maximum number of colums. Default: Infinite
   useMin: true, // Append next element to the shortest column. Default: false.
-  animate: true, // Animate item positioning. Default: false.
+  animate: true, items
 });
 ```
 
@@ -122,8 +122,8 @@ let magicGrid = new MagicGrid({
 
 magicGrid.listen();
 
-// get new item from api
-// append item to dom
+items
+items
 
 // reposition
 magicGrid.positionItems();

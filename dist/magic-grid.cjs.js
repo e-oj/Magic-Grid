@@ -11,13 +11,13 @@
  * @param config - configuration object
  */
 var checkParams = function (config) {
-  if (!config.container) { error('container'); }
-  if (!config.items && !config.static) { error('items or static'); }
+  if (!config.container) { error("container"); }
+  if (!config.items && !config.static) { error("items or static"); }
 };
 
 
 var error = function (prop) {
-  throw new Error(("Missing property '" + prop + "' in MagicGrid config"))
+  throw new Error(("Missing property '" + prop + "' in MagicGrid config"));
 };
 
 /**
@@ -35,7 +35,7 @@ var getMax = function (cols) {
     if (col.height > max.height) { max = col; }
   }
 
-  return max
+  return max;
 };
 
 /**
@@ -53,7 +53,7 @@ var getMin = function (cols) {
     if (col.height < min.height) { min = col; }
   }
 
-  return min
+  return min;
 };
 
 /**
@@ -70,7 +70,7 @@ var MagicGrid = function MagicGrid (config) {
 
   this.containerClass = config.container;
   this.container = document.querySelector(config.container);
-  this.item = this.container.children;
+  this.items = this.container.children;
   this.static = config.static || false;
   this.size = config.items;
   this.gutter = config.gutter || 25;
@@ -88,14 +88,14 @@ var MagicGrid = function MagicGrid (config) {
  * @private
  */
 MagicGrid.prototype.init = function init () {
-  if (!this.ready() || this.started) { return }
+  if (!this.ready() || this.started) { return; }
 
-  this.container.style.position = 'relative';
-  for (var i = 0; i < this.item.length; i++) {
-    this.item[i].style.position = 'absolute';
+  this.container.style.position = "relative";
+  for (var i = 0; i < this.items.length; i++) {
+    this.items[i].style.position = "absolute";
   
     if (this.animate) {
-      this.item[i].style.transition = 'top,left 0.2s ease';
+      this.items[i].style.transition = "top,left 0.2s ease";
     }
   }
 
@@ -109,7 +109,7 @@ MagicGrid.prototype.init = function init () {
  * @private
  */
 MagicGrid.prototype.colWidth = function colWidth () {
-  return this.item[0].getBoundingClientRect().width + this.gutter
+  return this.items[0].getBoundingClientRect().width + this.gutter;
 };
 
 /**
@@ -129,19 +129,12 @@ MagicGrid.prototype.setup = function setup () {
   }
 
   for (var i = 0; i < numCols; i++) {
-    cols[i] = {
-      height: 0,
-      top: 0,
-      index: i
-    };
+    cols[i] = {height: 0, index: i};
   }
 
   var wSpace = width - numCols * this.colWidth() + this.gutter;
 
-  return {
-    cols: cols,
-    wSpace: wSpace
-  }
+  return {cols: cols, wSpace: wSpace};
 };
 
 /**
@@ -155,14 +148,14 @@ MagicGrid.prototype.setup = function setup () {
  */
 MagicGrid.prototype.nextCol = function nextCol (cols, i) {
   if (this.useMin) {
-    return getMin(cols)
+    return getMin(cols);
   }
 
-  return cols[i % cols.length]
+  return cols[i % cols.length];
 };
 
 /**
- * Position each item in the container
+ * Position each items in the container
  * based on their corresponding columns
  * values.
  */
@@ -173,30 +166,29 @@ MagicGrid.prototype.positionItems = function positionItems () {
 
   wSpace = Math.floor(wSpace / 2);
 
-  for (var i = 0; i < this.item.length; i++) {
-    var min = this.nextCol(cols, i);
-    var left = min.index * this.colWidth() + wSpace;
-    var item = this.item[i];
+  for (var i = 0; i < this.items.length; i++) {
+    var col = this.nextCol(cols, i);
+    var left = col.index * this.colWidth() + wSpace;
+    var item = this.items[i];
 
-    item.style.left = left + 'px';
-    item.style.top = min.height + min.top + 'px';
+    item.style.left = left + "px";
+    item.style.top = col.height + this.gutter + "px";
 
-    min.height += min.top + item.getBoundingClientRect().height;
-    min.top = this.gutter;
+    col.height += item.getBoundingClientRect().height + this.gutter;
   }
 
   this.container.style.height = getMax(cols).height;
 };
 
 /**
- * Checks if every item has been loaded
+ * Checks if every items has been loaded
  * in the dom.
  *
- * @return {Boolean} true if every item is present
+ * @return {Boolean} true if every items is present
  */
 MagicGrid.prototype.ready = function ready () {
-  if (this.static) { return true }
-  return this.container.length > 0 && this.item.length === this.size
+  if (this.static) { return true; }
+  return this.container.length > 0 && this.items.length === this.size;
 };
 
 /**
@@ -212,7 +204,7 @@ MagicGrid.prototype.getReady = function getReady () {
 
   var interval = setInterval(function () {
     this$1.container = document.querySelector(this$1.containerClass);
-    this$1.item = this$1.container.children;
+    this$1.items = this$1.container.children;
 
     if (this$1.ready()) {
       clearInterval(interval);
@@ -234,7 +226,7 @@ MagicGrid.prototype.listen = function listen () {
   if (this.ready()) {
     this.positionItems();
 
-    window.addEventListener('resize', function () {
+    window.addEventListener("resize", function () {
       setTimeout(this$1.positionItems(), 200);
     });
   } else { this.getReady(); }

@@ -9,14 +9,14 @@
  * @param config - configuration object
  */
 const checkParams = config => {
-  if (!config.container) error('container')
-  if (!config.items && !config.static) error('items or static')
-}
+  if (!config.container) error("container");
+  if (!config.items && !config.static) error("items or static");
+};
 
 
 const error = prop => {
-  throw new Error(`Missing property '${prop}' in MagicGrid config`)
-}
+  throw new Error(`Missing property '${prop}' in MagicGrid config`);
+};
 
 /**
  * Finds the longest column in
@@ -27,14 +27,14 @@ const error = prop => {
  * @return longest column
  */
 const getMax = cols => {
-  let max = cols[0]
+  let max = cols[0];
 
   for (let col of cols) {
-    if (col.height > max.height) max = col
+    if (col.height > max.height) max = col;
   }
 
-  return max
-}
+  return max;
+};
 
 /**
  * Finds the longest column in
@@ -45,17 +45,17 @@ const getMax = cols => {
  * @return longest column
  */
 const getMin = cols => {
-  let min = cols[0]
+  let min = cols[0];
 
   for (let col of cols) {
-    if (col.height < min.height) min = col
+    if (col.height < min.height) min = col;
   }
 
-  return min
-}
+  return min;
+};
 
 export {
   checkParams,
   getMax,
   getMin
-}
+};

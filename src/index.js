@@ -11,7 +11,7 @@ import {
   getMax,
   checkParams,
   getMin
-} from './utils'
+} from "./utils";
 
 class MagicGrid {
   /**
@@ -21,20 +21,20 @@ class MagicGrid {
    * @param config - configuration object
    */
   constructor (config) {
-    checkParams(config)
+    checkParams(config);
 
-    this.containerClass = config.container
-    this.container = document.querySelector(config.container)
-    this.item = this.container.children
-    this.static = config.static || false
-    this.size = config.items
-    this.gutter = config.gutter || 25
-    this.maxColumns = config.maxColumns || false
-    this.useMin = config.useMin || false
-    this.animate = config.animate || false
-    this.started = false
+    this.containerClass = config.container;
+    this.container = document.querySelector(config.container);
+    this.items = this.container.children;
+    this.static = config.static || false;
+    this.size = config.items;
+    this.gutter = config.gutter || 25;
+    this.maxColumns = config.maxColumns || false;
+    this.useMin = config.useMin || false;
+    this.animate = config.animate || false;
+    this.started = false;
 
-    this.init()
+    this.init();
   }
 
   /**
@@ -43,18 +43,18 @@ class MagicGrid {
    * @private
    */
   init () {
-    if (!this.ready() || this.started) return
+    if (!this.ready() || this.started) return;
 
-    this.container.style.position = 'relative'
-    for (let i = 0; i < this.item.length; i++) {
-      this.item[i].style.position = 'absolute'
+    this.container.style.position = "relative";
+    for (let i = 0; i < this.items.length; i++) {
+      this.items[i].style.position = "absolute";
   
       if (this.animate) {
-        this.item[i].style.transition = 'top,left 0.2s ease'
+        this.items[i].style.transition = "top,left 0.2s ease";
       }
     }
 
-    this.started = true
+    this.started = true;
   }
 
   /**
@@ -64,7 +64,7 @@ class MagicGrid {
    * @private
    */
   colWidth () {
-    return this.item[0].getBoundingClientRect().width + this.gutter
+    return this.items[0].getBoundingClientRect().width + this.gutter;
   }
 
   /**
@@ -75,28 +75,21 @@ class MagicGrid {
    * @private
    */
   setup () {
-    let width = this.container.getBoundingClientRect().width
-    let numCols = Math.floor(width / this.colWidth()) || 1
-    let cols = []
+    let width = this.container.getBoundingClientRect().width;
+    let numCols = Math.floor(width / this.colWidth()) || 1;
+    let cols = [];
 
     if (this.maxColumns && numCols > this.maxColumns) {
-      numCols = this.maxColumns
+      numCols = this.maxColumns;
     }
 
     for (let i = 0; i < numCols; i++) {
-      cols[i] = {
-        height: 0,
-        top: 0,
-        index: i
-      }
+      cols[i] = {height: 0, index: i};
     }
 
-    let wSpace = width - numCols * this.colWidth() + this.gutter
+    let wSpace = width - numCols * this.colWidth() + this.gutter;
 
-    return {
-      cols,
-      wSpace
-    }
+    return {cols, wSpace};
   }
 
   /**
@@ -110,46 +103,45 @@ class MagicGrid {
    */
   nextCol (cols, i) {
     if (this.useMin) {
-      return getMin(cols)
+      return getMin(cols);
     }
 
-    return cols[i % cols.length]
+    return cols[i % cols.length];
   }
 
   /**
-   * Position each item in the container
+   * Position each items in the container
    * based on their corresponding columns
    * values.
    */
   positionItems () {
-    let { cols, wSpace } = this.setup()
+    let { cols, wSpace } = this.setup();
 
-    wSpace = Math.floor(wSpace / 2)
+    wSpace = Math.floor(wSpace / 2);
 
-    for (let i = 0; i < this.item.length; i++) {
-      let min = this.nextCol(cols, i)
-      let left = min.index * this.colWidth() + wSpace
-      let item = this.item[i]
+    for (let i = 0; i < this.items.length; i++) {
+      let col = this.nextCol(cols, i);
+      let left = col.index * this.colWidth() + wSpace;
+      let item = this.items[i];
 
-      item.style.left = left + 'px'
-      item.style.top = min.height + min.top + 'px'
+      item.style.left = left + "px";
+      item.style.top = col.height + this.gutter + "px";
 
-      min.height += min.top + item.getBoundingClientRect().height
-      min.top = this.gutter
+      col.height += item.getBoundingClientRect().height + this.gutter;
     }
 
-    this.container.style.height = getMax(cols).height
+    this.container.style.height = getMax(cols).height;
   }
 
   /**
-   * Checks if every item has been loaded
+   * Checks if every items has been loaded
    * in the dom.
    *
-   * @return {Boolean} true if every item is present
+   * @return {Boolean} true if every items is present
    */
   ready () {
-    if (this.static) return true
-    return this.container.length > 0 && this.item.length === this.size
+    if (this.static) return true;
+    return this.container.length > 0 && this.items.length === this.size;
   }
 
   /**
@@ -162,16 +154,16 @@ class MagicGrid {
    */
   getReady () {
     let interval = setInterval(() => {
-      this.container = document.querySelector(this.containerClass)
-      this.item = this.container.children
+      this.container = document.querySelector(this.containerClass);
+      this.items = this.container.children;
 
       if (this.ready()) {
-        clearInterval(interval)
+        clearInterval(interval);
 
-        this.init()
-        this.listen()
+        this.init();
+        this.listen();
       }
-    }, 100)
+    }, 100);
   }
 
   /**
@@ -181,13 +173,13 @@ class MagicGrid {
    */
   listen () {
     if (this.ready()) {
-      this.positionItems()
+      this.positionItems();
 
-      window.addEventListener('resize', () => {
-        setTimeout(this.positionItems(), 200)
-      })
-    } else this.getReady()
+      window.addEventListener("resize", () => {
+        setTimeout(this.positionItems(), 200);
+      });
+    } else this.getReady();
   }
 }
 
-export default MagicGrid
+export default MagicGrid;
