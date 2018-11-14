@@ -10,7 +10,7 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 #### [Sample Usage](https://github.com/e-oj/Magic-Grid/blob/master/test/grid.html)
 
-<img src="https://drive.google.com/uc?id=172ESPZDwQIf7vLMelun-_4RaWD_-j94-" alt="demo.gif" width="850"></img>
+<img src="https://cdn-images-1.medium.com/max/2000/1*bHgmqUe8gKxuZGqocBCV0g.gif" alt="demo.gif" width="850"></img>
 
 ### Getting Started:
 #### Step 1
