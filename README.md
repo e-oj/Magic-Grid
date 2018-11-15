@@ -90,7 +90,7 @@ let magicGrid = new MagicGrid({
   gutter: 30, // Optional. Space between items. Default: 25(px)
   maxColumns: 5, // Maximum number of colums. Default: Infinite
   useMin: true, // Append next element to the shortest column. Default: false.
-  animate: true, items
+  animate: true, // Animate item positioning. Default: false
 });
 ```
 
@@ -122,10 +122,10 @@ let magicGrid = new MagicGrid({
 
 magicGrid.listen();
 
-items
-items
+// get data from api
+// append new element to DOM
 
-// reposition
+// reposition items
 magicGrid.positionItems();
 ```
 
