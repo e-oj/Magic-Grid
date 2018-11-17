@@ -141,7 +141,7 @@ class MagicGrid {
    */
   ready () {
     if (this.static) return true;
-    return this.container.length > 0 && this.items.length === this.size;
+    return this.items.length === this.size;
   }
 
   /**
