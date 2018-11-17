@@ -123,11 +123,12 @@ class MagicGrid {
       let col = this.nextCol(cols, i);
       let left = col.index * this.colWidth() + wSpace;
       let item = this.items[i];
+      let topGutter = col.height ? this.gutter : 0;
 
       item.style.left = left + "px";
-      item.style.top = col.height + this.gutter + "px";
+      item.style.top = col.height + topGutter + "px";
 
-      col.height += item.getBoundingClientRect().height + this.gutter;
+      col.height += item.getBoundingClientRect().height + topGutter;
     }
 
     this.container.style.height = getMax(cols).height + "px";

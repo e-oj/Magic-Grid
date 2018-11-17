@@ -168,11 +168,12 @@ MagicGrid.prototype.positionItems = function positionItems () {
     var col = this.nextCol(cols, i);
     var left = col.index * this.colWidth() + wSpace;
     var item = this.items[i];
+    var topGutter = col.height ? this.gutter : 0;
 
     item.style.left = left + "px";
-    item.style.top = col.height + this.gutter + "px";
+    item.style.top = col.height + topGutter + "px";
 
-    col.height += item.getBoundingClientRect().height + this.gutter;
+    col.height += item.getBoundingClientRect().height + topGutter;
   }
 
   this.container.style.height = getMax(cols).height + "px";
