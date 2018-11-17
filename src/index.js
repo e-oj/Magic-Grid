@@ -130,7 +130,7 @@ class MagicGrid {
       col.height += item.getBoundingClientRect().height + this.gutter;
     }
 
-    this.container.style.height = getMax(cols).height;
+    this.container.style.height = getMax(cols).height + "px";
   }
 
   /**
