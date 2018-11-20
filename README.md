@@ -12,6 +12,7 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 <img src="http://drive.google.com/uc?export=view&id=172ESPZDwQIf7vLMelun-_4RaWD_-j94-" alt="demo" width="850"></img>
 
+
 **@imlinus has created a Vue.js port of the library. You can check it out [here](https://github.com/imlinus/Vue-Magic-Grid).**
 
 ### Getting Started:
