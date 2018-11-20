@@ -27,6 +27,16 @@ npm install magic-grid
 
 Import Magic Grid:
 
+```javascript
+import MagicGrid from "magic-grid"
+```
+or
+
+```javascript
+let MagicGrid = require("magic-grid");
+```
+or
+
 ```html
 <script src="node_modules/magic-grid/dist/magic-grid.cjs.js">
 ```
@@ -35,12 +45,6 @@ or (minified)
 
 ```html
 <script src="node_modules/magic-grid/dist/magic-grid.min.js">
-```
-
-or
-
-```javascript
-let MagicGrid = require("magic-grid");
 ```
 
 #### Step 3
