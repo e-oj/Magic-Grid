@@ -35,9 +35,10 @@ or
 ```javascript
 let MagicGrid = require("magic-grid");
 ```
-
+<br>
 
 You can also pull Magic Grid directly into your html
+
 ```html
 <script src="node_modules/magic-grid/dist/magic-grid.cjs.js">
 ```
