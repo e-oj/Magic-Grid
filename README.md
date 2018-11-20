@@ -36,6 +36,7 @@ or
 let MagicGrid = require("magic-grid");
 ```
 
+
 You can also pull Magic Grid directly into your html
 ```html
 <script src="node_modules/magic-grid/dist/magic-grid.cjs.js">
