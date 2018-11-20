@@ -28,6 +28,11 @@ npm install magic-grid
 Import Magic Grid:
 
 ```javascript
+import MagicGrid from "magic-grid"
+```
+or
+
+```javascript
 let MagicGrid = require("magic-grid");
 ```
 or
