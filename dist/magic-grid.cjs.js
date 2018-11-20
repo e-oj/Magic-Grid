@@ -189,7 +189,7 @@ MagicGrid.prototype.positionItems = function positionItems () {
  */
 MagicGrid.prototype.ready = function ready () {
   if (this.static) { return true; }
-  return this.items.length === this.size;
+  return this.items.length >= this.size;
 };
 
 /**
