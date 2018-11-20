@@ -30,13 +30,13 @@ Import Magic Grid:
 ```javascript
 import MagicGrid from "magic-grid"
 ```
-or
+or (CJS)
 
 ```javascript
 let MagicGrid = require("magic-grid");
 ```
-or
 
+You can also pull Magic Grid directly into your html
 ```html
 <script src="node_modules/magic-grid/dist/magic-grid.cjs.js">
 ```
