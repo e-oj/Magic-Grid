@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/e-oj/Magic-Grid#readme",
   "devDependencies": {
-    "rollup": "^0.67.1",
+    "rollup": "^0.67.3",
     "rollup-plugin-buble": "^0.19.4",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^3.4.0",
