@@ -14,7 +14,7 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 #### @imlinus has created a Vue.js port of the library. You can check it out [here](https://github.com/imlinus/Vue-Magic-Grid).
 
-### Getting Started:
+### Getting Started
 #### Step 1
 
 Get Magic Grid:
