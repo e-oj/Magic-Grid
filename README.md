@@ -29,10 +29,8 @@ Import Magic Grid:
 
 ```javascript
 import MagicGrid from "magic-grid"
-```
-or 
 
-```javascript
+// or
 let MagicGrid = require("magic-grid");
 ```
 <br>
