@@ -65,7 +65,7 @@ let magicGrid = new MagicGrid(...);
 magicGrid.listen();
 ```
 
-### Usage:
+### Usage
 #### Static content:
 If your container doesn't have any dynamically loaded content i.e., all its child elements are always in the DOM, you should initialize the grid this way:
 ```javascript
