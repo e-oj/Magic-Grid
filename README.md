@@ -123,7 +123,7 @@ magicGrid.listen();
 ---
 
 #### .positionItems()
-This function is useful in cases where you have to manually trigger a repositioning; for instance, if a new element is added to the container
+This function is useful in cases where you have to manually trigger a repositioning; for instance, if a new element is added to the container.
 
 ```javascript
 let magicGrid = new MagicGrid({
