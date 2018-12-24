@@ -4,7 +4,7 @@
 # Magic Grid
 ## A simple, lightweight Javascript library for dynamic grid layouts.
 
-Creating a dynamic grid layout has never been easier. With Magic Grid, all you have to do is specify a container and listen for changes. A few other configuration options are available for convenience but it's all very simple. Check it out live <b>[on JSFIDDLE](https://jsfiddle.net/eolaojo/4pov0rdf/)</b>. You can read about the implementaion details <b>[on Codeburst](https://codeburst.io/magic-grid-f8e2221e7cef)</b>.
+Creating a dynamic grid layout has never been easier. With Magic Grid, all you have to do is specify a container and listen for changes. A few other configuration options are available for convenience but it's all very simple. Check it out live <b>[on JSFIDDLE](https://jsfiddle.net/eolaojo/4pov0rdf/)</b>. You can read about the implementaion details <b>[on CodeBurst](https://codeburst.io/magic-grid-f8e2221e7cef)</b>.
 
 **Note: Every item in the grid must have the same width**
 
@@ -16,11 +16,11 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 ### Why not CSS Grid?
 
-As explained in [Magic-Grid's introductory blog post](https://codeburst.io/magic-grid-f8e2221e7cef):
+This issue is addressed in [the CodeBurst article](https://codeburst.io/magic-grid-f8e2221e7cef):
 
 > Implementing a grid layout can quickly turn into a tricky task. If you have grid items that are always the same height, then you can probably make do with a Flexbox grid or some other CSS grid implementation. However, if you’re dealing with user-generated content, chances are, you don’t have the luxury of equal height components. One longer or shorter component would either stretch the other components in its row, or leave some unpleasant whitespace at the bottom of the row. All of a sudden, our beloved CSS grid has become insufficient.
 
-Check out [CSS Grid AMA's issue #19](https://github.com/rachelandrew/cssgrid-ama/issues/19) for more details. Straight from CSS Grid goddess @rachelandrew herself:
+Check out [CSS Grid AMA's issue #19](https://github.com/rachelandrew/cssgrid-ama/issues/19) for more details. Straight from CSS expert @rachelandrew:
 
 > That's not something grid is designed for. Grid is two dimensional so you are always working in both rows and columns at the same time. You can't use grid to do a "masonry" style layout like that. You could place items in that way if you had a lot of rows and managed how many each spanned, but you can't use auto-placement to get that kind of layout.
 
