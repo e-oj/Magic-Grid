@@ -20,7 +20,7 @@ This issue is addressed in [the CodeBurst article](https://codeburst.io/magic-gr
 
 > Implementing a grid layout can quickly turn into a tricky task. If you have grid items that are always the same height, then you can probably make do with a Flexbox grid or some other CSS grid implementation. However, if you’re dealing with user-generated content, chances are, you don’t have the luxury of equal height components. One longer or shorter component would either stretch the other components in its row, or leave some unpleasant whitespace at the bottom of the row. All of a sudden, our beloved CSS grid has become insufficient.
 
-Check out [CSS Grid AMA's issue #19](https://github.com/rachelandrew/cssgrid-ama/issues/19) for more details. Straight from CSS expert @rachelandrew:
+Check out [CSS Grid AMA's issue #19](https://github.com/rachelandrew/cssgrid-ama/issues/19) for more details. Straight from CSS expert [@rachelandrew](https://github.com/rachelandrew):
 
 > That's not something grid is designed for. Grid is two dimensional so you are always working in both rows and columns at the same time. You can't use grid to do a "masonry" style layout like that. You could place items in that way if you had a lot of rows and managed how many each spanned, but you can't use auto-placement to get that kind of layout.
 
