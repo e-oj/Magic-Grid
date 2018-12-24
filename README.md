@@ -16,7 +16,7 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 ### Why not CSS Grid?
 
-This issue is addressed in [the CodeBurst article](https://codeburst.io/magic-grid-f8e2221e7cef):
+This issue is addressed in [the article](https://codeburst.io/magic-grid-f8e2221e7cef):
 
 > Implementing a grid layout can quickly turn into a tricky task. If you have grid items that are always the same height, then you can probably make do with a Flexbox grid or some other CSS grid implementation. However, if you’re dealing with user-generated content, chances are, you don’t have the luxury of equal height components. One longer or shorter component would either stretch the other components in its row, or leave some unpleasant whitespace at the bottom of the row. All of a sudden, our beloved CSS grid has become insufficient.
 
