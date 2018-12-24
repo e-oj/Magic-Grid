@@ -4,7 +4,7 @@
 # Magic Grid
 ## A simple, lightweight Javascript library for dynamic grid layouts.
 
-Creating a dynamic grid layout has never been easier. With Magic Grid, all you have to do is specify a container and listen for changes. A few other configuration options are available for convenience but it's all very simple. Check it out live [on JSFIDDLE](https://jsfiddle.net/eolaojo/4pov0rdf/). You can read about the implementaion details [on Codeburst](https://codeburst.io/magic-grid-f8e2221e7cef).
+Creating a dynamic grid layout has never been easier. With Magic Grid, all you have to do is specify a container and listen for changes. A few other configuration options are available for convenience but it's all very simple. Check it out live <b>[on JSFIDDLE](https://jsfiddle.net/eolaojo/4pov0rdf/)</b>. You can read about the implementaion details <b>[on CodeBurst](https://codeburst.io/magic-grid-f8e2221e7cef)</b>.
 
 **Note: Every item in the grid must have the same width**
 
@@ -12,7 +12,17 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 <img src="http://drive.google.com/uc?export=view&id=172ESPZDwQIf7vLMelun-_4RaWD_-j94-" alt="demo" width="850"></img>
 
-#### @imlinus has created a Vue.js port of the library. You can check it out [here](https://github.com/imlinus/Vue-Magic-Grid).
+#### [@imlinus](https://github.com/imlinus) has created a Vue.js port of the library. You can check it out [here](https://github.com/imlinus/Vue-Magic-Grid).
+
+### Why not CSS Grid?
+
+This question is addressed in <b>[the article](https://codeburst.io/magic-grid-f8e2221e7cef)</b>:
+
+> Implementing a grid layout can quickly turn into a tricky task. If you have grid items that are always the same height, then you can probably make do with a Flexbox grid or some other CSS grid implementation. However, if you’re dealing with user-generated content, chances are, you don’t have the luxury of equal height components. One longer or shorter component would either stretch the other components in its row, or leave some unpleasant whitespace at the bottom of the row. All of a sudden, our beloved CSS grid has become insufficient.
+
+Check out <b>[CSS Grid AMA's issue #19](https://github.com/rachelandrew/cssgrid-ama/issues/19)</b> for a response from CSS expert <b>[@rachelandrew](https://github.com/rachelandrew)</b>:
+
+> That's not something grid is designed for. Grid is two dimensional so you are always working in both rows and columns at the same time. You can't use grid to do a "masonry" style layout like that. You could place items in that way if you had a lot of rows and managed how many each spanned, but you can't use auto-placement to get that kind of layout.
 
 ### Getting Started
 #### Step 1
@@ -123,7 +133,7 @@ magicGrid.listen();
 ---
 
 #### .positionItems()
-This function is useful in cases where you have to manually trigger a repositioning; for instance, if a new element is added to the container
+This function is useful in cases where you have to manually trigger a repositioning; for instance, if a new element is added to the container.
 
 ```javascript
 let magicGrid = new MagicGrid({
