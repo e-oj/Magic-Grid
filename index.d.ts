@@ -88,7 +88,7 @@ declare class MagicGrid {
     * @return {*} next available column
     * @private
     */
-   private nextCol(): object;
+   private nextCol(cols: object[], i: number): object;
 
    /**
     * Periodically checks that all items
@@ -109,21 +109,11 @@ declare class MagicGrid {
 declare function checkParams(config: MagicGridProps): void;
 
 /**
- * Finds the longest column in
+ * Finds the shortest column in
  * a column list
  *
  * @param cols - list of columns
  *
  * @return longest column
  */
-declare function getMax(cols: number[]): object;
-
-/**
- * Finds the longest column in
- * a column list
- *
- * @param cols - list of columns
- *
- * @return longest column
- */
-declare function getMin(cols: number[]): object;
+declare function getMin(cols: object[]): object;
