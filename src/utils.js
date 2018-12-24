@@ -14,35 +14,23 @@ const checkParams = config => {
 };
 
 
+/**
+ * Handles invalid configuration object
+ * errors.
+ *
+ * @param prop - a property with a missing value
+ */
 const error = prop => {
   throw new Error(`Missing property '${prop}' in MagicGrid config`);
 };
 
 /**
- * Finds the longest column in
- * a column list
+ * Finds the shortest column in
+ * a column list.
  *
  * @param cols - list of columns
  *
- * @return longest column
- */
-const getMax = cols => {
-  let max = cols[0];
-
-  for (let col of cols) {
-    if (col.height > max.height) max = col;
-  }
-
-  return max;
-};
-
-/**
- * Finds the longest column in
- * a column list
- *
- * @param cols - list of columns
- *
- * @return longest column
+ * @return shortest column
  */
 const getMin = cols => {
   let min = cols[0];
@@ -54,4 +42,4 @@ const getMin = cols => {
   return min;
 };
 
-export {checkParams, getMax, getMin};
+export {checkParams, getMin};

@@ -8,7 +8,6 @@
  */
 
 import {
-  getMax,
   checkParams,
   getMin
 } from "./utils";
@@ -46,6 +45,7 @@ class MagicGrid {
     if (!this.ready() || this.started) return;
 
     this.container.style.position = "relative";
+
     for (let i = 0; i < this.items.length; i++) {
       this.items[i].style.position = "absolute";
   
@@ -116,6 +116,7 @@ class MagicGrid {
    */
   positionItems () {
     let { cols, wSpace } = this.setup();
+    let maxHeight = 0;
 
     wSpace = Math.floor(wSpace / 2);
 
@@ -129,9 +130,13 @@ class MagicGrid {
       item.style.top = col.height + topGutter + "px";
 
       col.height += item.getBoundingClientRect().height + topGutter;
+
+      if(col.height > maxHeight){
+        maxHeight = col.height;
+      }
     }
 
-    this.container.style.height = getMax(cols).height + "px";
+    this.container.style.height = maxHeight + "px";
   }
 
   /**
@@ -174,12 +179,20 @@ class MagicGrid {
    */
   listen () {
     if (this.ready()) {
-      this.positionItems();
+      let timeout;
 
       window.addEventListener("resize", () => {
-        setTimeout(this.positionItems(), 200);
+        if (!timeout){
+          timeout = setTimeout(() => {
+            this.positionItems();
+            timeout = null;
+          }, 200);
+        }
       });
-    } else this.getReady();
+
+      this.positionItems();
+    }
+    else this.getReady();
   }
 }
 

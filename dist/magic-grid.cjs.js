@@ -16,35 +16,23 @@ var checkParams = function (config) {
 };
 
 
+/**
+ * Handles invalid configuration object
+ * errors.
+ *
+ * @param prop - a property with a missing value
+ */
 var error = function (prop) {
   throw new Error(("Missing property '" + prop + "' in MagicGrid config"));
 };
 
 /**
- * Finds the longest column in
- * a column list
+ * Finds the shortest column in
+ * a column list.
  *
  * @param cols - list of columns
  *
- * @return longest column
- */
-var getMax = function (cols) {
-  var max = cols[0];
-
-  for (var col of cols) {
-    if (col.height > max.height) { max = col; }
-  }
-
-  return max;
-};
-
-/**
- * Finds the longest column in
- * a column list
- *
- * @param cols - list of columns
- *
- * @return longest column
+ * @return shortest column
  */
 var getMin = function (cols) {
   var min = cols[0];
@@ -91,6 +79,7 @@ MagicGrid.prototype.init = function init () {
   if (!this.ready() || this.started) { return; }
 
   this.container.style.position = "relative";
+
   for (var i = 0; i < this.items.length; i++) {
     this.items[i].style.position = "absolute";
   
@@ -163,6 +152,7 @@ MagicGrid.prototype.positionItems = function positionItems () {
   var ref = this.setup();
     var cols = ref.cols;
     var wSpace = ref.wSpace;
+  var maxHeight = 0;
 
   wSpace = Math.floor(wSpace / 2);
 
@@ -176,9 +166,13 @@ MagicGrid.prototype.positionItems = function positionItems () {
     item.style.top = col.height + topGutter + "px";
 
     col.height += item.getBoundingClientRect().height + topGutter;
+
+    if(col.height > maxHeight){
+      maxHeight = col.height;
+    }
   }
 
-  this.container.style.height = getMax(cols).height + "px";
+  this.container.style.height = maxHeight + "px";
 };
 
 /**
@@ -225,12 +219,20 @@ MagicGrid.prototype.listen = function listen () {
     var this$1 = this;
 
   if (this.ready()) {
-    this.positionItems();
+    var timeout;
 
     window.addEventListener("resize", function () {
-      setTimeout(this$1.positionItems(), 200);
+      if (!timeout){
+        timeout = setTimeout(function () {
+          this$1.positionItems();
+          timeout = null;
+        }, 200);
+      }
     });
-  } else { this.getReady(); }
+
+    this.positionItems();
+  }
+  else { this.getReady(); }
 };
 
 module.exports = MagicGrid;
