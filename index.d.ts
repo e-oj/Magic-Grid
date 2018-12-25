@@ -9,7 +9,7 @@
  */
 export interface MagicGridProps{
   containerClass?: string;
-  container?: string;
+  container?: string | HTMLElement;
   static?: boolean;
   items?: number;
   gutter?: number;
