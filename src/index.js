@@ -25,10 +25,12 @@ class MagicGrid {
     if (config.container instanceof HTMLElement) {
       this.container = config.container;
       this.containerClass = config.container.className;
-    } else {
+    }
+    else {
       this.containerClass = config.container;
       this.container = document.querySelector(config.container);
     }
+
     this.items = this.container.children;
     this.static = config.static || false;
     this.size = config.items;
