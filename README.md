@@ -78,9 +78,9 @@ magicGrid.listen();
 If your container doesn't have any dynamically loaded content i.e., all its child elements are always in the DOM, you should initialize the grid this way:
 ```javascript
 let magicGrid = new MagicGrid({
-  container: "#container", // Required. Can be class, id selector or HTMLElement
-  static: true, // Required for static content
-  animate: true, // Optional
+  container: "#container", // Required. Can be class, id selector or HTMLElement.
+  static: true, // Required for static content.
+  animate: true, // Optional.
 });
 
 magicGrid.listen();
@@ -90,9 +90,9 @@ magicGrid.listen();
 If the container relies on data from an api, or experiences a delay, for whatever reason, before it can render its content in the DOM, you need to let the grid know the number of items to expect:
 ```javascript
 let magicGrid = new MagicGrid({
-  container: "#container", // Required. Can be class, id selector or HTMLElement
-  items: 20, // For a grid with 20 items. Required for dynamic content
-  animate: true, // Optional
+  container: "#container", // Required. Can be class, id selector or HTMLElement.
+  items: 20, // For a grid with 20 items. Required for dynamic content.
+  animate: true, // Optional.
 });
 
 magicGrid.listen();
@@ -106,13 +106,13 @@ magicGrid.listen();
 The MagicGrid constructor. Initializes the grid with a configuration object.
 ```javascript
 let magicGrid = new MagicGrid({
-  container: "#container", // Required. Can be class or id of the container or HTMLElement object.
+  container: "#container", // Required. Can be class or id of the container or HTMLElement.
   static: false, // Required for static content. Default: false.
   items: 30, // Required for dynamic content. Initial number of items in the container.
-  gutter: 30, // Optional. Space between items. Default: 25(px)
-  maxColumns: 5, // Maximum number of colums. Default: Infinite
+  gutter: 30, // Optional. Space between items. Default: 25(px).
+  maxColumns: 5, // Maximum number of colums. Default: Infinite.
   useMin: true, // Append next element to the shortest column. Default: false.
-  animate: true, // Animate item positioning. Default: false
+  animate: true, // Animate item positioning. Default: false.
 });
 ```
 
@@ -122,9 +122,9 @@ let magicGrid = new MagicGrid({
 Positions the items and listens for changes to the window size. All items are repositioned whenever the window is resized.
 ```javascript
 let magicGrid = new MagicGrid({
-  container: "#container", // Required. Can be class, id selector or HTMLElement
-  static: true, // Required for static content
-  animate: true, // Optional
+  container: "#container", // Required. Can be class, id selector or HTMLElement.
+  static: true, // Required for static content.
+  animate: true, // Optional.
 });
 
 magicGrid.listen();
