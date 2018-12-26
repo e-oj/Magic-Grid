@@ -9,6 +9,10 @@
  * @param config - configuration object
  */
 const checkParams = config => {
+  if (typeof config === "undefined" || config === null) {
+    throw new Error("No config object has been provided.");
+  }
+
   if (!config.container) error("container");
   if (!config.items && !config.static) error("items or static");
 };
