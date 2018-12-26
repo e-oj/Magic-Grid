@@ -4,7 +4,7 @@
 # Magic Grid
 ## A simple, lightweight Javascript library for dynamic grid layouts.
 
-Creating a dynamic grid layout has never been easier. With Magic Grid, all you have to do is specify a container and listen for changes. A few other configuration options are available for convenience but it's all very simple. Check it out live <b>[on JSFIDDLE](https://jsfiddle.net/eolaojo/4pov0rdf/)</b>. You can read about the implementaion details <b>[on CodeBurst](https://codeburst.io/magic-grid-f8e2221e7cef)</b>.
+Creating a dynamic grid layout has never been easier. With Magic Grid, all you have to do is specify a container and listen for changes. A few other configuration options are available for convenience but it's all very simple. Check it out live <b>[on JSFIDDLE](https://jsfiddle.net/eolaojo/4pov0rdf/)</b>. You can read about the implementation details <b>[on CodeBurst](https://codeburst.io/magic-grid-f8e2221e7cef)</b>.
 
 **Note: Every item in the grid must have the same width**
 
@@ -110,7 +110,7 @@ let magicGrid = new MagicGrid({
   static: false, // Required for static content. Default: false.
   items: 30, // Required for dynamic content. Initial number of items in the container.
   gutter: 30, // Optional. Space between items. Default: 25(px).
-  maxColumns: 5, // Maximum number of colums. Default: Infinite.
+  maxColumns: 5, // Maximum number of columns. Default: Infinite.
   useMin: true, // Append next element to the shortest column. Default: false.
   animate: true, // Animate item positioning. Default: false.
 });
