@@ -70,6 +70,7 @@ var MagicGrid = function MagicGrid (config) {
   this.maxColumns = config.maxColumns || false;
   this.useMin = config.useMin || false;
   this.animate = config.animate || false;
+  this.animateTransition = config.animateTransition || "top,left 0.2s ease";
   this.started = false;
 
   this.init();
@@ -89,7 +90,7 @@ MagicGrid.prototype.init = function init () {
     this.items[i].style.position = "absolute";
   
     if (this.animate) {
-      this.items[i].style.transition = "top,left 0.2s ease";
+      this.items[i].style.transition = this.animateTransition;
     }
   }
 

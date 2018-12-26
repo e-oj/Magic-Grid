@@ -16,6 +16,7 @@ export interface MagicGridProps{
   maxColumns: number,
   useMin: boolean,
   animate: boolean,
+  animateTransition?: string,
 }
 
 /**
