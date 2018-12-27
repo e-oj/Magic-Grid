@@ -83,7 +83,8 @@ class MagicGrid {
    */
   setup () {
     let width = this.container.getBoundingClientRect().width;
-    let numCols = Math.floor(width / this.colWidth()) || 1;
+    let colWidth = this.colWidth();
+    let numCols = Math.floor(width/colWidth) || 1;
     let cols = [];
 
     if (this.maxColumns && numCols > this.maxColumns) {
@@ -94,7 +95,7 @@ class MagicGrid {
       cols[i] = {height: 0, index: i};
     }
 
-    let wSpace = width - numCols * this.colWidth() + this.gutter;
+    let wSpace = width - numCols * colWidth + this.gutter;
 
     return {cols, wSpace};
   }
@@ -124,12 +125,13 @@ class MagicGrid {
   positionItems () {
     let { cols, wSpace } = this.setup();
     let maxHeight = 0;
+    let colWidth = this.colWidth();
 
     wSpace = Math.floor(wSpace / 2);
 
     for (let i = 0; i < this.items.length; i++) {
       let col = this.nextCol(cols, i);
-      let left = col.index * this.colWidth() + wSpace;
+      let left = col.index * colWidth + wSpace;
       let item = this.items[i];
       let topGutter = col.height ? this.gutter : 0;
 

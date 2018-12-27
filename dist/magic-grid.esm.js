@@ -9,6 +9,10 @@
  * @param config - configuration object
  */
 var checkParams = function (config) {
+  if (!config) {
+    throw new Error("No config object has been provided.");
+  }
+
   if (!config.container) { error("container"); }
   if (!config.items && !config.static) { error("items or static"); }
 };
@@ -115,7 +119,8 @@ MagicGrid.prototype.colWidth = function colWidth () {
  */
 MagicGrid.prototype.setup = function setup () {
   var width = this.container.getBoundingClientRect().width;
-  var numCols = Math.floor(width / this.colWidth()) || 1;
+  var colWidth = this.colWidth();
+  var numCols = Math.floor(width/colWidth) || 1;
   var cols = [];
 
   if (this.maxColumns && numCols > this.maxColumns) {
@@ -126,7 +131,7 @@ MagicGrid.prototype.setup = function setup () {
     cols[i] = {height: 0, index: i};
   }
 
-  var wSpace = width - numCols * this.colWidth() + this.gutter;
+  var wSpace = width - numCols * colWidth + this.gutter;
 
   return {cols: cols, wSpace: wSpace};
 };
@@ -158,12 +163,13 @@ MagicGrid.prototype.positionItems = function positionItems () {
     var cols = ref.cols;
     var wSpace = ref.wSpace;
   var maxHeight = 0;
+  var colWidth = this.colWidth();
 
   wSpace = Math.floor(wSpace / 2);
 
   for (var i = 0; i < this.items.length; i++) {
     var col = this.nextCol(cols, i);
-    var left = col.index * this.colWidth() + wSpace;
+    var left = col.index * colWidth + wSpace;
     var item = this.items[i];
     var topGutter = col.height ? this.gutter : 0;
 
