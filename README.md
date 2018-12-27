@@ -6,7 +6,7 @@
 
 Creating a dynamic grid layout has never been easier. With Magic Grid, all you have to do is specify a container and listen for changes. A few other configuration options are available for convenience but it's all very simple. Check it out live <b>[on JSFIDDLE](https://jsfiddle.net/eolaojo/4pov0rdf/)</b>. You can read about the implementation details <b>[on CodeBurst](https://codeburst.io/magic-grid-f8e2221e7cef)</b>.
 
-**Note: Every item in the grid must have the same width**
+**Note: Every item in the grid must have the same width.**
 
 #### [Sample Usage](https://github.com/e-oj/Magic-Grid/blob/master/test/grid.html)
 
