@@ -118,9 +118,10 @@ class MagicGrid {
   }
 
   /**
-   * Position each items in the container
-   * based on their corresponding columns
-   * values.
+   * Positions each item in the grid, based
+   * on their corresponding column's height
+   * and index then stretches the container to
+   * the height of the grid.
    */
   positionItems () {
     let { cols, wSpace } = this.setup();
@@ -149,10 +150,10 @@ class MagicGrid {
   }
 
   /**
-   * Checks if every items has been loaded
+   * Checks if every item has been loaded
    * in the dom.
    *
-   * @return {Boolean} true if every items is present
+   * @return {Boolean} true if every item is present
    */
   ready () {
     if (this.static) return true;
