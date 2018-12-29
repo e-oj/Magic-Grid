@@ -27,13 +27,21 @@ Check out <b>[CSS Grid AMA's issue #19](https://github.com/rachelandrew/cssgrid-
 ### Getting Started
 #### Step 1
 
-Get Magic Grid:
+Get Magic Grid via NPM:
 
 ```
 npm install magic-grid
 ```
 
-#### Step 2
+Or CDN
+```html
+<script src="https://unpkg.com/magic-grid/dist/magic-grid.cjs.js"></script>
+
+<!-- or (minified) -->
+<script src="https://unpkg.com/magic-grid/dist/magic-grid.min.js"></script>
+```
+
+#### Step 2 (skip if using CDN)
 
 Import Magic Grid:
 
@@ -47,15 +55,6 @@ let MagicGrid = require("magic-grid");
 
 You can also pull Magic Grid directly into your html
 
-CDN
-```html
-<script src="https://unpkg.com/magic-grid/dist/magic-grid.cjs.js"></script>
-
-<!-- or (minified) -->
-<script src="https://unpkg.com/magic-grid/dist/magic-grid.min.js"></script>
-```
-
-NPM 
 ```html
 <script src="node_modules/magic-grid/dist/magic-grid.cjs.js"></script>
 
