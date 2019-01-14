@@ -197,10 +197,6 @@ MagicGrid.prototype.positionItems = function positionItems () {
  */
 MagicGrid.prototype.ready = function ready () {
   if (this.static) { return true; }
-
-  this.container = document.querySelector(this.containerClass);
-  this.items = this.container.children;
-
   return this.items.length >= this.size;
 };
 
@@ -216,6 +212,9 @@ MagicGrid.prototype.getReady = function getReady () {
     var this$1 = this;
 
   var interval = setInterval(function () {
+    this$1.container = document.querySelector(this$1.containerClass);
+    this$1.items = this$1.container.children;
+
     if (this$1.ready()) {
       clearInterval(interval);
 
