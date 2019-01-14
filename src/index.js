@@ -157,6 +157,10 @@ class MagicGrid {
    */
   ready () {
     if (this.static) return true;
+
+    this.container = document.querySelector(this.containerClass);
+    this.items = this.container.children;
+
     return this.items.length >= this.size;
   }
 
@@ -170,9 +174,6 @@ class MagicGrid {
    */
   getReady () {
     let interval = setInterval(() => {
-      this.container = document.querySelector(this.containerClass);
-      this.items = this.container.children;
-
       if (this.ready()) {
         clearInterval(interval);
 
