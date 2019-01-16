@@ -12,13 +12,6 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 <img src="http://drive.google.com/uc?export=view&id=172ESPZDwQIf7vLMelun-_4RaWD_-j94-" alt="demo" width="850"></img>
 
-### Ports
-
-| Port | Author |
-|:--------|:-------|
-| [Vue.js](https://github.com/imlinus/Vue-Magic-Grid) | [@imlinus](https://github.com/imlinus) |
-| [React](https://github.com/IniZio/Magic-Grid-React) | [@IniZio](https://github.com/IniZio) |
-
 ### Why not CSS Grid?
 
 This question is addressed in <b>[the article](https://codeburst.io/magic-grid-f8e2221e7cef)</b>:
@@ -28,6 +21,13 @@ This question is addressed in <b>[the article](https://codeburst.io/magic-grid-f
 Check out <b>[CSS Grid AMA's issue #19](https://github.com/rachelandrew/cssgrid-ama/issues/19)</b> for a response from CSS expert <b>[@rachelandrew](https://github.com/rachelandrew)</b>:
 
 > That's not something grid is designed for. Grid is two dimensional so you are always working in both rows and columns at the same time. You can't use grid to do a "masonry" style layout like that. You could place items in that way if you had a lot of rows and managed how many each spanned, but you can't use auto-placement to get that kind of layout.
+
+### Ports
+
+| Port | Author |
+|:--------|:-------|
+| [Vue.js](https://github.com/imlinus/Vue-Magic-Grid) | [@imlinus](https://github.com/imlinus) |
+| [React](https://github.com/IniZio/Magic-Grid-React) | [@IniZio](https://github.com/IniZio) |
 
 ### Getting Started
 #### Step 1
