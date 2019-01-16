@@ -95,7 +95,7 @@ MagicGrid.prototype.init = function init () {
     this.items[i].style.position = "absolute";
   
     if (this.animate) {
-      this.items[i].style.transition = "top,left 0.2s ease";
+      this.items[i].style.transition = "transform 0.2s ease";
     }
   }
 
@@ -172,12 +172,12 @@ MagicGrid.prototype.positionItems = function positionItems () {
 
   for (var i = 0; i < this.items.length; i++) {
     var col = this.nextCol(cols, i);
-    var left = col.index * colWidth + wSpace;
     var item = this.items[i];
     var topGutter = col.height ? this.gutter : 0;
+    var left = col.index * colWidth + wSpace;
+    var top = col.height + topGutter;
 
-    item.style.left = left + "px";
-    item.style.top = col.height + topGutter + "px";
+    item.style.transform = "translate(" + left + "px, " + top + "px)";
 
     col.height += item.getBoundingClientRect().height + topGutter;
 

@@ -57,7 +57,7 @@ class MagicGrid {
       this.items[i].style.position = "absolute";
   
       if (this.animate) {
-        this.items[i].style.transition = "top,left 0.2s ease";
+        this.items[i].style.transition = "transform 0.2s ease";
       }
     }
 
@@ -132,12 +132,12 @@ class MagicGrid {
 
     for (let i = 0; i < this.items.length; i++) {
       let col = this.nextCol(cols, i);
-      let left = col.index * colWidth + wSpace;
       let item = this.items[i];
       let topGutter = col.height ? this.gutter : 0;
+      let left = col.index * colWidth + wSpace;
+      let top = col.height + topGutter;
 
-      item.style.left = left + "px";
-      item.style.top = col.height + topGutter + "px";
+      item.style.transform = `translate(${left}px, ${top}px)`;
 
       col.height += item.getBoundingClientRect().height + topGutter;
 
