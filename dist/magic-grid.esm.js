@@ -93,7 +93,7 @@ MagicGrid.prototype.init = function init () {
     this.items[i].style.position = "absolute";
   
     if (this.animate) {
-      this.items[i].style.transition = "top,left 0.2s ease";
+      this.items[i].style.transition = "transform 0.2s ease";
     }
   }
 
@@ -154,9 +154,10 @@ MagicGrid.prototype.nextCol = function nextCol (cols, i) {
 };
 
 /**
- * Position each items in the container
- * based on their corresponding columns
- * values.
+ * Positions each item in the grid, based
+ * on their corresponding column's height
+ * and index then stretches the container to
+ * the height of the grid.
  */
 MagicGrid.prototype.positionItems = function positionItems () {
   var ref = this.setup();
@@ -169,12 +170,12 @@ MagicGrid.prototype.positionItems = function positionItems () {
 
   for (var i = 0; i < this.items.length; i++) {
     var col = this.nextCol(cols, i);
-    var left = col.index * colWidth + wSpace;
     var item = this.items[i];
     var topGutter = col.height ? this.gutter : 0;
+    var left = col.index * colWidth + wSpace;
+    var top = col.height + topGutter;
 
-    item.style.left = left + "px";
-    item.style.top = col.height + topGutter + "px";
+    item.style.transform = "translate(" + left + "px, " + top + "px)";
 
     col.height += item.getBoundingClientRect().height + topGutter;
 
@@ -187,10 +188,10 @@ MagicGrid.prototype.positionItems = function positionItems () {
 };
 
 /**
- * Checks if every items has been loaded
+ * Checks if every item has been loaded
  * in the dom.
  *
- * @return {Boolean} true if every items is present
+ * @return {Boolean} true if every item is present
  */
 MagicGrid.prototype.ready = function ready () {
   if (this.static) { return true; }
