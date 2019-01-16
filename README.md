@@ -24,7 +24,7 @@ Check out <b>[CSS Grid AMA's issue #19](https://github.com/rachelandrew/cssgrid-
 
 ### Ports
 
-| Repository | Author |
+| Repo | Author |
 |:--------|:-------|
 | [Vue-Magic-Grid](https://github.com/imlinus/Vue-Magic-Grid) | [@imlinus](https://github.com/imlinus) |
 | [Magic-Grid-React](https://github.com/IniZio/Magic-Grid-React) | [@IniZio](https://github.com/IniZio) |
