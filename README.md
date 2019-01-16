@@ -12,9 +12,10 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 <img src="http://drive.google.com/uc?export=view&id=172ESPZDwQIf7vLMelun-_4RaWD_-j94-" alt="demo" width="850"></img>
 
-<b>[Vue.js Port](https://github.com/imlinus/Vue-Magic-Grid) - Created by [@imlinus](https://github.com/imlinus)</b>
-<br/>
-<b>[React Port](https://github.com/IniZio/Magic-Grid-React) - Created by [@IniZio](https://github.com/IniZio)</b>
+| Ports |
+|--------|
+| <b>[Vue.js](https://github.com/imlinus/Vue-Magic-Grid)</b> - <b>[@imlinus](https://github.com/imlinus)</b> |
+| <b>[React](https://github.com/IniZio/Magic-Grid-React)</b> - <b>[@IniZio](https://github.com/IniZio)</b> |
 
 ### Why not CSS Grid?
 
