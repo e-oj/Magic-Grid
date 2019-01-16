@@ -24,10 +24,10 @@ Check out <b>[CSS Grid AMA's issue #19](https://github.com/rachelandrew/cssgrid-
 
 ### Ports
 
-| Port | Author |
+| Repository | Author |
 |:--------|:-------|
-| [Vue.js](https://github.com/imlinus/Vue-Magic-Grid) | [@imlinus](https://github.com/imlinus) |
-| [React](https://github.com/IniZio/Magic-Grid-React) | [@IniZio](https://github.com/IniZio) |
+| [Vue-Magic-Grid](https://github.com/imlinus/Vue-Magic-Grid) | [@imlinus](https://github.com/imlinus) |
+| [Magic-Grid-React](https://github.com/IniZio/Magic-Grid-React) | [@IniZio](https://github.com/IniZio) |
 
 ### Getting Started
 #### Step 1
