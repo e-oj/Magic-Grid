@@ -21,7 +21,7 @@ export interface MagicGridProps{
 /**
  * MagicGrid class
  */
-declare class MagicGrid {
+export default class MagicGrid {
   /**
    * class constructor
    *
