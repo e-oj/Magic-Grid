@@ -8,10 +8,10 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 **Note: Every item in the grid must have the same width.**
 
-| Ports |
-|--------|
-| <b>[Vue.js](https://github.com/imlinus/Vue-Magic-Grid)</b> - <b>[@imlinus](https://github.com/imlinus)</b> |
-| <b>[React](https://github.com/IniZio/Magic-Grid-React)</b> - <b>[@IniZio](https://github.com/IniZio)</b> |
+| Port | Author |
+|:--------|:-------|
+| <b>[Vue.js](https://github.com/imlinus/Vue-Magic-Grid)</b> | <b>[@imlinus](https://github.com/imlinus)</b> |
+| <b>[React](https://github.com/IniZio/Magic-Grid-React)</b> | <b>[@IniZio](https://github.com/IniZio)</b> |
 
 #### [Sample Usage](https://github.com/e-oj/Magic-Grid/blob/master/test/grid.html)
 
