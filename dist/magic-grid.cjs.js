@@ -15,8 +15,8 @@ var checkParams = function (config) {
     throw new Error("No config object has been provided.");
   }
 
-  if(typeof config.useTranslate !== "boolean"){
-    config.useTranslate = true;
+  if(typeof config.useTransform !== "boolean"){
+    config.useTransform = true;
   }
 
   if (!config.container) { error("container"); }
@@ -79,7 +79,7 @@ var MagicGrid = function MagicGrid (config) {
   this.gutter = config.gutter || 25;
   this.maxColumns = config.maxColumns || false;
   this.useMin = config.useMin || false;
-  this.useTranslate = config.useTranslate;
+  this.useTransform = config.useTransform;
   this.animate = config.animate || false;
   this.started = false;
 
@@ -102,7 +102,7 @@ MagicGrid.prototype.init = function init () {
     style.position = "absolute";
   
     if (this.animate) {
-      style.transition = (this.useTranslate ? "transform" : "top, left") + " 0.2s ease";
+      style.transition = (this.useTransform ? "transform" : "top, left") + " 0.2s ease";
     }
   }
 
@@ -184,7 +184,7 @@ MagicGrid.prototype.positionItems = function positionItems () {
     var left = col.index * colWidth + wSpace + "px";
     var top = col.height + topGutter + "px";
 
-    if(this.useTranslate){
+    if(this.useTransform){
       item.style.transform = "translate(" + left + ", " + top + ")";
     }
     else{

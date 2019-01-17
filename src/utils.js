@@ -13,8 +13,8 @@ const checkParams = config => {
     throw new Error("No config object has been provided.");
   }
 
-  if(typeof config.useTranslate !== "boolean"){
-    config.useTranslate = true;
+  if(typeof config.useTransform !== "boolean"){
+    config.useTransform = true;
   }
 
   if (!config.container) error("container");

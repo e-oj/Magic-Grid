@@ -37,7 +37,7 @@ class MagicGrid {
     this.gutter = config.gutter || 25;
     this.maxColumns = config.maxColumns || false;
     this.useMin = config.useMin || false;
-    this.useTranslate = config.useTranslate;
+    this.useTransform = config.useTransform;
     this.animate = config.animate || false;
     this.started = false;
 
@@ -60,7 +60,7 @@ class MagicGrid {
       style.position = "absolute";
   
       if (this.animate) {
-        style.transition = `${this.useTranslate ? "transform" : "top, left"} 0.2s ease`;
+        style.transition = `${this.useTransform ? "transform" : "top, left"} 0.2s ease`;
       }
     }
 
@@ -140,7 +140,7 @@ class MagicGrid {
       let left = col.index * colWidth + wSpace + "px";
       let top = col.height + topGutter + "px";
 
-      if(this.useTranslate){
+      if(this.useTransform){
         item.style.transform = `translate(${left}, ${top})`;
       }
       else{
