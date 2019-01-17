@@ -116,6 +116,7 @@ let magicGrid = new MagicGrid({
   gutter: 30, // Optional. Space between items. Default: 25(px).
   maxColumns: 5, // Maximum number of columns. Default: Infinite.
   useMin: true, // Prioritize shorter columns when placing items in the grid. Default: false.
+  useTransform: true // Position items using CSS transform. Default: True.
   animate: true, // Animate item positioning. Default: false.
 });
 ```
