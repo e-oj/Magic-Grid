@@ -12,8 +12,6 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 <img src="http://drive.google.com/uc?export=view&id=172ESPZDwQIf7vLMelun-_4RaWD_-j94-" alt="demo" width="850"></img>
 
-#### [@imlinus](https://github.com/imlinus) has created a Vue.js port of the library. You can check it out [here](https://github.com/imlinus/Vue-Magic-Grid).
-
 ### Why not CSS Grid?
 
 This question is addressed in <b>[the article](https://codeburst.io/magic-grid-f8e2221e7cef)</b>:
@@ -23,6 +21,13 @@ This question is addressed in <b>[the article](https://codeburst.io/magic-grid-f
 Check out <b>[CSS Grid AMA's issue #19](https://github.com/rachelandrew/cssgrid-ama/issues/19)</b> for a response from CSS expert <b>[@rachelandrew](https://github.com/rachelandrew)</b>:
 
 > That's not something grid is designed for. Grid is two dimensional so you are always working in both rows and columns at the same time. You can't use grid to do a "masonry" style layout like that. You could place items in that way if you had a lot of rows and managed how many each spanned, but you can't use auto-placement to get that kind of layout.
+
+### Ports
+
+| Repo | Author |
+|:--------|:-------|
+| [Vue-Magic-Grid](https://github.com/imlinus/Vue-Magic-Grid) | [@imlinus](https://github.com/imlinus) |
+| [Magic-Grid-React](https://github.com/IniZio/Magic-Grid-React) | [@IniZio](https://github.com/IniZio) |
 
 ### Getting Started
 #### Step 1
@@ -109,9 +114,10 @@ let magicGrid = new MagicGrid({
   static: false, // Required for static content. Default: false.
   items: 30, // Required for dynamic content. Initial number of items in the container.
   gutter: 30, // Optional. Space between items. Default: 25(px).
-  maxColumns: 5, // Maximum number of columns. Default: Infinite.
-  useMin: true, // Prioritize shorter columns when placing items in the grid. Default: false.
-  animate: true, // Animate item positioning. Default: false.
+  maxColumns: 5, // Optional. Maximum number of columns. Default: Infinite.
+  useMin: true, // Optional. Prioritize shorter columns when positioning items. Default: false.
+  useTransform: true // Optional. Position items using CSS transform. Default: True.
+  animate: true, // Optional. Animate item positioning. Default: false.
 });
 ```
 

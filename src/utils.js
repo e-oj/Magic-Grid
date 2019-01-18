@@ -13,6 +13,10 @@ const checkParams = config => {
     throw new Error("No config object has been provided.");
   }
 
+  if(typeof config.useTransform !== "boolean"){
+    config.useTransform = true;
+  }
+
   if (!config.container) error("container");
   if (!config.items && !config.static) error("items or static");
 };
