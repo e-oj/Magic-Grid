@@ -9,12 +9,18 @@
  * @param config - configuration object
  */
 var checkParams = function (config) {
+  var DEFAULT_GUTTER = 25;
+
   if (!config) {
     throw new Error("No config object has been provided.");
   }
 
   if(typeof config.useTransform !== "boolean"){
     config.useTransform = true;
+  }
+
+  if(typeof config.gutter !== "number"){
+    config.gutter = DEFAULT_GUTTER;
   }
 
   if (!config.container) { error("container"); }
@@ -74,7 +80,7 @@ var MagicGrid = function MagicGrid (config) {
   this.items = this.container.children;
   this.static = config.static || false;
   this.size = config.items;
-  this.gutter = config.gutter || 25;
+  this.gutter = config.gutter;
   this.maxColumns = config.maxColumns || false;
   this.useMin = config.useMin || false;
   this.useTransform = config.useTransform;

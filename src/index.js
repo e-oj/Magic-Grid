@@ -34,7 +34,7 @@ class MagicGrid {
     this.items = this.container.children;
     this.static = config.static || false;
     this.size = config.items;
-    this.gutter = config.gutter || 25;
+    this.gutter = config.gutter;
     this.maxColumns = config.maxColumns || false;
     this.useMin = config.useMin || false;
     this.useTransform = config.useTransform;
