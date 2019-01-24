@@ -8,14 +8,14 @@
  * configuration object of the MagicGrid constructor
  */
 export interface MagicGridProps{
-  containerClass?: string;
-  container?: string | HTMLElement;
+  container: string | HTMLElement;
   static?: boolean;
   items?: number;
   gutter?: number;
-  maxColumns: number,
-  useMin: boolean,
-  animate: boolean,
+  maxColumns?: number;
+  useMin?: boolean;
+  useTransform?: boolean;
+  animate?: boolean;
 }
 
 /**
