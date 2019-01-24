@@ -9,12 +9,18 @@
  * @param config - configuration object
  */
 const checkParams = config => {
+  const DEFAULT_GUTTER = 25;
+
   if (!config) {
     throw new Error("No config object has been provided.");
   }
 
   if(typeof config.useTransform !== "boolean"){
     config.useTransform = true;
+  }
+
+  if(typeof config.gutter !== "number"){
+    config.gutter = DEFAULT_GUTTER;
   }
 
   if (!config.container) error("container");
