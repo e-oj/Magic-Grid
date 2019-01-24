@@ -18,10 +18,12 @@ export interface MagicGridProps{
   animate: boolean,
 }
 
+export default MagicGrid;
+
 /**
  * MagicGrid class
  */
-export default class MagicGrid {
+declare class MagicGrid {
   /**
    * class constructor
    *
