@@ -74,7 +74,8 @@ class MagicGrid {
    * @private
    */
   colWidth () {
-    return this.items[0].getBoundingClientRect().width + this.gutter;
+    const width = this.items[0].getBoundingClientRect().width + this.gutter;
+    return Math.floor(width);
   }
 
   /**
