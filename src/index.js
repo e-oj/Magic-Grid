@@ -74,8 +74,27 @@ class MagicGrid {
    * @private
    */
   colWidth () {
-    const width = this.items[0].getBoundingClientRect().width + this.gutter;
-    return Math.floor(width);
+    const width = this.container.getBoundingClientRect().width
+    let colWidth = this.items[0].getBoundingClientRect().width + this.gutter
+    let numCols = Math.floor(width / colWidth) || 1
+
+    // if we're dealing with subpixel rounding issue
+    // reduce the colWidth until we have a proper layout
+    // we know we should be able to fit one more column
+    // limit number of iterations to minimise overhead
+    // and to prevent any risk of infinite loop
+    if (Math.floor(colWidth) === Math.floor(width % colWidth)) {
+      const properNumCols = numCols + 1
+      let iterationCount = 0
+      const maxIterations = 20
+      while (numCols !== properNumCols && iterationCount < maxIterations) {
+        iterationCount += 1
+        colWidth -= 0.0001
+        numCols = Math.floor(width / colWidth)
+      }
+    }
+
+    return colWidth
   }
 
   /**
