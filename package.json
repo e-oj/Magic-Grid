@@ -6,6 +6,7 @@
   "module": "dist/magic-grid.esm.js",
   "browser": "dist/magic-grid.min.js",
   "scripts": {
+    "dev": "rollup -c rollup.config.js -w",
     "build": "rollup -c rollup.config.js"
   },
   "repository": {

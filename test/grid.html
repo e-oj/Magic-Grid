@@ -25,6 +25,11 @@
 </head>
 <body>
 
+  <button data-magic-grid-init>init()</button>
+  <button data-magic-grid-listen>listen()</button>
+  <button data-magic-grid-destroy>destroy()</button>
+  <button data-magic-grid-position>positionItems()</button>
+
   <div class="container">
     <div class="item1">1</div>
     <div class="item2">2</div>
@@ -52,6 +57,17 @@
       });
 
       magicGrid.listen();
+
+      let initBtn = document.querySelector('[data-magic-grid-init]');
+      let listenBtn = document.querySelector('[data-magic-grid-listen]');
+      let destroyBtn = document.querySelector('[data-magic-grid-destroy]');
+      let positionBtn = document.querySelector('[data-magic-grid-position]');
+      initBtn.addEventListener('click', function(){
+        magicGrid.init()
+      });
+      listenBtn.addEventListener('click', magicGrid.listen);
+      destroyBtn.addEventListener('click', magicGrid.destroy);
+      positionBtn.addEventListener('click', magicGrid.positionItems);
   </script>
 
 </body>

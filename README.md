@@ -157,3 +157,34 @@ magicGrid.positionItems();
 ```
 
 ---
+
+#### .destroy()
+Remove listeners and styles applied to your elements.
+
+```javascript
+let magicGrid = new MagicGrid({});
+
+const destroyBtn = document.querySelector('[data-magic-grid-destroy]')
+destroyBtn.addEventListener('click', magiGrid.destroy)
+```
+
+---
+
+#### .init()
+Reboots plugin after being destroyed. (automatically called on instantiation)
+
+```javascript
+let magicGrid = new MagicGrid({});
+
+function destroyOnSmall(){
+  if matchMedia('(min-width: 600px)').matches {
+    if(!magicGrid.started){
+      magicGrid.init()
+    }
+  } else {
+    magicGrid.destroy()
+  }
+}
+
+window.addEventListener('resize', destroyOnSmall);
+```
