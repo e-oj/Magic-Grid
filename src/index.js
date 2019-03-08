@@ -41,6 +41,9 @@ class MagicGrid {
     this.animate = config.animate || false;
     this.started = false;
 
+    // bind this context to public methods
+    this.positionItems = this.positionItems.bind(this);
+    this.listen = this.listen.bind(this);
     this.init();
   }
 
