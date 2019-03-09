@@ -60,9 +60,23 @@ declare class MagicGrid {
    /**
     * Initializes styles
     *
-    * @private
+    * @public
     */
-   private init(): void;
+   public init(): void;
+
+  /**
+   * Removes styles and events
+   *
+   * @public
+   */
+  public destroy(): void;
+
+  /**
+   * Reference to resize handler method
+   *
+   * @private
+   */
+  private handleWindowResize(): void;
 
    /**
     * Calculates the width of a column.

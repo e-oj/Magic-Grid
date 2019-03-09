@@ -40,14 +40,23 @@ class MagicGrid {
     this.useTransform = config.useTransform;
     this.animate = config.animate || false;
     this.started = false;
+    this._timeout = null;
 
+    // bind this context to public methods
+    this.positionItems = this.positionItems.bind(this);
+    this.listen = this.listen.bind(this);
+    this.destroy = this.destroy.bind(this);
+    this.handleWindowResize = this.handleWindowResize.bind(this);
     this.init();
   }
 
   /**
    * Initializes styles
    *
-   * @private
+   * [1] - Add event listener
+   * [2] - Fix small positioning bump https://cl.ly/ba80133631a9
+   *
+   * @public
    */
   init () {
     if (!this.ready() || this.started) return;
@@ -58,12 +67,14 @@ class MagicGrid {
       let style = this.items[i].style;
 
       style.position = "absolute";
-  
+
       if (this.animate) {
         style.transition = `${this.useTransform ? "transform" : "top, left"} 0.2s ease`;
       }
     }
 
+    this.listen(); // [1]
+    this.positionItems(); // [2]
     this.started = true;
   }
 
@@ -125,6 +136,8 @@ class MagicGrid {
    * on their corresponding column's height
    * and index then stretches the container to
    * the height of the grid.
+   *
+   * @public
    */
   positionItems () {
     let { cols, wSpace } = this.setup();
@@ -186,7 +199,6 @@ class MagicGrid {
         clearInterval(interval);
 
         this.init();
-        this.listen();
       }
     }, 100);
   }
@@ -195,24 +207,62 @@ class MagicGrid {
    * Positions all the items and
    * repositions them whenever the
    * window size changes.
+   *
+   * @public
    */
   listen () {
     if (this.ready()) {
-      let timeout;
-
-      window.addEventListener("resize", () => {
-        if (!timeout){
-          timeout = setTimeout(() => {
-            this.positionItems();
-            timeout = null;
-          }, 200);
-        }
-      });
-
+      window.addEventListener("resize", this.handleWindowResize)
       this.positionItems();
     }
     else this.getReady();
   }
+
+  /**
+   * call positionItems() on window resize
+   * note: referenceable, so it can be removed
+   *
+   * @private
+   */
+  handleWindowResize() {
+    if (!this._timeout){
+      this._timeout = setTimeout(() => {
+        this.positionItems();
+        this._timeout = null;
+      }, 200);
+    }
+  }
+
+  /**
+   * Remove all applied style properties and events
+   *
+   * @public
+   */
+  destroy() {
+    // remove container applied style properties
+    this.container.style.removeProperty("height");
+    this.container.style.removeProperty("position");
+
+    // convert HTMLCollection to iterable
+    let itemsArr = [].slice.call(this.items);
+    // remove grid items applied style properties
+    itemsArr.map(item => {
+      item.style.removeProperty("position")
+      item.style.removeProperty("transition")
+      if (this.useTransform) {
+        item.style.removeProperty('transform')
+      } else {
+        item.style.removeProperty("top");
+        item.style.removeProperty("left");
+      }
+    })
+
+    // removeEvents
+    window.removeEventListener("resize", this.handleWindowResize);
+
+    // turn off flag
+    this.started = false;
+  };
 }
 
 export default MagicGrid;
