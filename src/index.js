@@ -38,6 +38,7 @@ class MagicGrid {
     this.maxColumns = config.maxColumns || false;
     this.useMin = config.useMin || false;
     this.useTransform = config.useTransform;
+    this.useResizeObserver = config.useResizeObserver || false;
     this.animate = config.animate || false;
     this.started = false;
 
@@ -148,6 +149,9 @@ class MagicGrid {
         item.style.left = left;
       }
 
+      if(item.style.position !== "absolute")
+        item.style.position = "absolute";
+
       col.height += item.getBoundingClientRect().height + topGutter;
 
       if(col.height > maxHeight){
@@ -198,16 +202,24 @@ class MagicGrid {
    */
   listen () {
     if (this.ready()) {
-      let timeout;
 
-      window.addEventListener("resize", () => {
-        if (!timeout){
-          timeout = setTimeout(() => {
-            this.positionItems();
-            timeout = null;
-          }, 200);
-        }
-      });
+      if(this.useResizeObserver){
+        const resizeObserver = new ResizeObserver(() => {
+          this.positionItems();
+        });
+
+        resizeObserver.observe(this.container);
+      }else{
+        let timeout;
+        window.addEventListener("resize", () => {
+          if (!timeout){
+            timeout = setTimeout(() => {
+              this.positionItems();
+              timeout = null;
+            }, 200);
+          }
+        });
+      }
 
       this.positionItems();
     }

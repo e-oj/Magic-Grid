@@ -86,6 +86,7 @@ var MagicGrid = function MagicGrid (config) {
   this.maxColumns = config.maxColumns || false;
   this.useMin = config.useMin || false;
   this.useTransform = config.useTransform;
+  this.useResizeObserver = config.useResizeObserver || false;
   this.animate = config.animate || false;
   this.started = false;
 
@@ -198,6 +199,9 @@ MagicGrid.prototype.positionItems = function positionItems () {
       item.style.left = left;
     }
 
+    if(item.style.position !== "absolute")
+      { item.style.position = "absolute"; }
+
     col.height += item.getBoundingClientRect().height + topGutter;
 
     if(col.height > maxHeight){
@@ -252,16 +256,24 @@ MagicGrid.prototype.listen = function listen () {
     var this$1 = this;
 
   if (this.ready()) {
-    var timeout;
 
-    window.addEventListener("resize", function () {
-      if (!timeout){
-        timeout = setTimeout(function () {
-          this$1.positionItems();
-          timeout = null;
-        }, 200);
-      }
-    });
+    if(this.useResizeObserver){
+      var resizeObserver = new ResizeObserver(function () {
+        this$1.positionItems();
+      });
+
+      resizeObserver.observe(this.container);
+    }else{
+      var timeout;
+      window.addEventListener("resize", function () {
+        if (!timeout){
+          timeout = setTimeout(function () {
+            this$1.positionItems();
+            timeout = null;
+          }, 200);
+        }
+      });
+    }
 
     this.positionItems();
   }
