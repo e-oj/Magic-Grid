@@ -196,6 +196,9 @@ MagicGrid.prototype.positionItems = function positionItems () {
       item.style.left = left;
     }
 
+    if(item.style.position === "absolute")
+      { item.style.position = "relative"; }
+
     col.height += item.getBoundingClientRect().height + topGutter;
 
     if(col.height > maxHeight){
