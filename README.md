@@ -1,5 +1,6 @@
 [![MIT License](https://img.shields.io/npm/l/magic-grid.svg?style=for-the-badge)](https://www.npmjs.com/package/magic-grid)
 [![Version](https://img.shields.io/npm/v/magic-grid.svg?style=for-the-badge)](https://www.npmjs.com/package/magic-grid)
+[![Downloads](https://img.shields.io/npm/dt/magic-grid.svg?style=for-the-badge)](https://www.npmjs.com/package/magic-grid)
 
 # Magic Grid [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Magic%20Grid%20-%20A%20simple,%20lightweight%20Javascript%20library%20for%20dynamic%20grid%20layouts.&url=https://github.com/e-oj/Magic-Grid&hashtags=MagicGrid,GridLayout,JS)
 ## A simple, lightweight Javascript library for dynamic grid layouts.
@@ -116,7 +117,7 @@ let magicGrid = new MagicGrid({
   gutter: 30, // Optional. Space between items. Default: 25(px).
   maxColumns: 5, // Optional. Maximum number of columns. Default: Infinite.
   useMin: true, // Optional. Prioritize shorter columns when positioning items. Default: false.
-  useTransform: true // Optional. Position items using CSS transform. Default: True.
+  useTransform: true, // Optional. Position items using CSS transform. Default: True.
   animate: true, // Optional. Animate item positioning. Default: false.
 });
 ```

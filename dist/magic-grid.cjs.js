@@ -51,8 +51,8 @@ var error = function (prop) {
 var getMin = function (cols) {
   var min = cols[0];
 
-  for (var col of cols) {
-    if (col.height < min.height) { min = col; }
+  for (var i = 0; i < cols.length; i++) {
+    if (cols[i].height < min.height) { min = cols[i]; }
   }
 
   return min;
