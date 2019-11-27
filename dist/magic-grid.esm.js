@@ -10,14 +10,19 @@
  */
 var checkParams = function (config) {
   var DEFAULT_GUTTER = 25;
+  var booleanProps = ["useTransform", "center"];
+
 
   if (!config) {
     throw new Error("No config object has been provided.");
   }
 
-  if(typeof config.useTransform !== "boolean"){
-    config.useTransform = true;
+  for(var prop of booleanProps){
+    if(typeof config[prop] !== "boolean"){
+      config[prop] = true;
+    }
   }
+
 
   if(typeof config.gutter !== "number"){
     config.gutter = DEFAULT_GUTTER;
@@ -86,6 +91,7 @@ var MagicGrid = function MagicGrid (config) {
   this.useTransform = config.useTransform;
   this.animate = config.animate || false;
   this.started = false;
+  this.center = config.center;
 
   this.init();
 };
@@ -179,7 +185,7 @@ MagicGrid.prototype.positionItems = function positionItems () {
   var maxHeight = 0;
   var colWidth = this.colWidth();
 
-  wSpace = Math.floor(wSpace / 2);
+  wSpace = this.center ? Math.floor(wSpace / 2) : 0;
 
   for (var i = 0; i < this.items.length; i++) {
     var col = this.nextCol(cols, i);
