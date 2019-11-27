@@ -155,7 +155,7 @@ class MagicGrid {
       }
     }
 
-    this.container.style.height = maxHeight + "px";
+    this.container.style.height = maxHeight + this.gutter + "px";
   }
 
   /**

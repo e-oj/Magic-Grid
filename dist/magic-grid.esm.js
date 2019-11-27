@@ -203,7 +203,7 @@ MagicGrid.prototype.positionItems = function positionItems () {
     }
   }
 
-  this.container.style.height = maxHeight + "px";
+  this.container.style.height = maxHeight + this.gutter + "px";
 };
 
 /**
