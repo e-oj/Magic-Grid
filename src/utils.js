@@ -10,14 +10,19 @@
  */
 const checkParams = config => {
   const DEFAULT_GUTTER = 25;
+  const booleanProps = ["useTransform", "center"];
+
 
   if (!config) {
     throw new Error("No config object has been provided.");
   }
 
-  if(typeof config.useTransform !== "boolean"){
-    config.useTransform = true;
+  for(let prop of booleanProps){
+    if(typeof config[prop] !== "boolean"){
+      config[prop] = true;
+    }
   }
+
 
   if(typeof config.gutter !== "number"){
     config.gutter = DEFAULT_GUTTER;
