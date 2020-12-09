@@ -5,9 +5,9 @@
  */
 
 /**
- * configuration object of the MagicGrid constructor
+ * Configuration object of the MagicGrid constructor
  */
-export interface MagicGridProps{
+export interface MagicGridProps {
   container: string | HTMLElement;
   static?: boolean;
   items?: number;
@@ -16,6 +16,7 @@ export interface MagicGridProps{
   useMin?: boolean;
   useTransform?: boolean;
   animate?: boolean;
+  center?: boolean;
 }
 
 export default MagicGrid;
