@@ -2,10 +2,10 @@
 [![Version](https://img.shields.io/npm/v/magic-grid.svg?style=for-the-badge)](https://www.npmjs.com/package/magic-grid)
 [![Downloads](https://img.shields.io/npm/dt/magic-grid.svg?style=for-the-badge)](https://www.npmjs.com/package/magic-grid)
 
-# Magic Grid [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Magic%20Grid%20-%20A%20simple,%20lightweight%20Javascript%20library%20for%20dynamic%20grid%20layouts.&url=https://github.com/e-oj/Magic-Grid&hashtags=MagicGrid,GridLayout,JS)
-
 <a href="https://www.buymeacoffee.com/e.oj"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=e-oj&button_colour=40DCA5&font_colour=ffffff&font_family=Inter&outline_colour=000000&coffee_colour=FFDD00" width=180px></a>
 ---
+
+# Magic Grid [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Magic%20Grid%20-%20A%20simple,%20lightweight%20Javascript%20library%20for%20dynamic%20grid%20layouts.&url=https://github.com/e-oj/Magic-Grid&hashtags=MagicGrid,GridLayout,JS)
 
 ## A simple, lightweight Javascript library for dynamic grid layouts.
 
