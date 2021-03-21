@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Magic Grid</title>
+
+  <style>
+    .container div {
+      width: 1200px;
+      height: 500px;
+      background-color: antiquewhite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+    }
+
+    /* 2 column */
+    .container .item {
+      background-color: wheat;
+
+      /* (100% - (1 gutter * gutter size)) / numCols */
+      width: calc((100% - 25px) / 2);
+    }
+
+    /* 4 column */
+    @media only screen and (min-width: 768px) {
+      .container .item {
+        /* (100% - (3 gutters * gutter size)) / numCols */
+        width: calc((100% - (3 * 25px)) / 4);
+      }
+    }
+
+    .container .item1 { height: 200px; }
+    .container .item4 { height: 800px; }
+    .container .item6 { height: 600px; }
+    .container .item11 { height: 400px; }
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="item item6">6</div>
+    <div class="item item7">7</div>
+    <div class="item item8">8</div>
+    <div class="item item9">9</div>
+    <div class="item item10">10</div>
+    <div class="item item11">11</div>
+    <div class="item item12">12</div>
+    <div class="item item13">13</div>
+  </div>
+
+  <script src="../dist/magic-grid.min.js"></script>
+  <script>
+      let magicGrid = new MagicGrid({
+        container: '.container',
+        animate: true,
+        gutter: 25,
+        static: true,
+        useMin: true
+      });
+
+      magicGrid.listen();
+  </script>
+
+</body>
+</html>

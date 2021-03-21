@@ -139,7 +139,7 @@ MagicGrid.prototype.colWidth = function colWidth () {
 MagicGrid.prototype.setup = function setup () {
   var width = this.container.getBoundingClientRect().width;
   var colWidth = this.colWidth();
-  var numCols = Math.floor(width/colWidth) || 1;
+  var numCols = Math.floor((width + this.gutter)/colWidth) || 1;
   var cols = [];
 
   if (this.maxColumns && numCols > this.maxColumns) {
