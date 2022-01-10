@@ -41,9 +41,15 @@
     <div class="item13">13</div>
   </div>
 
+  <div>
+    <button onclick="addItems()">Add Items</button>
+    <button onclick="removeItems()">Remove Items</button>
+  </div>
+
   <script src="../dist/magic-grid.min.js"></script>
+  <script src="./modify-items.js"></script>
   <script>
-      let magicGrid = new MagicGrid({
+      const magicGrid = new MagicGrid({
         container: '.container',
         animate: true,
         gutter: 30,
