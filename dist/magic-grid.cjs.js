@@ -79,7 +79,6 @@ var MagicGrid = function MagicGrid (config) {
     this.container = document.querySelector(config.container);
   }
 
-  this.items = this.container.children;
   this.static = config.static || false;
   this.size = config.items;
   this.gutter = config.gutter;
@@ -87,9 +86,7 @@ var MagicGrid = function MagicGrid (config) {
   this.useMin = config.useMin || false;
   this.useTransform = config.useTransform;
   this.animate = config.animate || false;
-  this.started = false;
-
-  this.init();
+  this.styledItems = new Set();
 };
 
 /**
@@ -97,22 +94,35 @@ var MagicGrid = function MagicGrid (config) {
  *
  * @private
  */
-MagicGrid.prototype.init = function init () {
-  if (!this.ready() || this.started) { return; }
+MagicGrid.prototype.initStyles = function initStyles () {
+  if (!this.ready()) { return; }
 
   this.container.style.position = "relative";
+  var items = this.items();
 
-  for (var i = 0; i < this.items.length; i++) {
-    var style = this.items[i].style;
+  for (var i = 0; i < items.length; i++) {
+    if (this.styledItems.has(items[i])) { continue; }
+
+    var style = items[i].style;
 
     style.position = "absolute";
   
     if (this.animate) {
       style.transition = (this.useTransform ? "transform" : "top, left") + " 0.2s ease";
     }
-  }
 
-  this.started = true;
+    this.styledItems.add(items[i]);
+  }
+};
+
+/**
+ * Gets a collection of all items in a grid.
+ *
+ * @return {HTMLCollection}
+ * @private
+ */
+MagicGrid.prototype.items = function items () {
+  return this.container.children;
 };
 
 /**
@@ -122,7 +132,7 @@ MagicGrid.prototype.init = function init () {
  * @private
  */
 MagicGrid.prototype.colWidth = function colWidth () {
-  return this.items[0].getBoundingClientRect().width + this.gutter;
+  return this.items()[0].getBoundingClientRect().width + this.gutter;
 };
 
 /**
@@ -180,12 +190,15 @@ MagicGrid.prototype.positionItems = function positionItems () {
     var wSpace = ref.wSpace;
   var maxHeight = 0;
   var colWidth = this.colWidth();
+  var items = this.items();
 
   wSpace = Math.floor(wSpace / 2);
 
-  for (var i = 0; i < this.items.length; i++) {
+  this.initStyles();
+
+  for (var i = 0; i < items.length; i++) {
     var col = this.nextCol(cols, i);
-    var item = this.items[i];
+    var item = items[i];
     var topGutter = col.height ? this.gutter : 0;
     var left = col.index * colWidth + wSpace + "px";
     var top = col.height + topGutter + "px";
@@ -216,7 +229,7 @@ MagicGrid.prototype.positionItems = function positionItems () {
  */
 MagicGrid.prototype.ready = function ready () {
   if (this.static) { return true; }
-  return this.items.length >= this.size;
+  return this.items().length >= this.size;
 };
 
 /**
@@ -232,12 +245,10 @@ MagicGrid.prototype.getReady = function getReady () {
 
   var interval = setInterval(function () {
     this$1.container = document.querySelector(this$1.containerClass);
-    this$1.items = this$1.container.children;
 
     if (this$1.ready()) {
       clearInterval(interval);
 
-      this$1.init();
       this$1.listen();
     }
   }, 100);
