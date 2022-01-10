@@ -31,7 +31,6 @@ class MagicGrid {
       this.container = document.querySelector(config.container);
     }
 
-    this.items = this.container.children;
     this.static = config.static || false;
     this.size = config.items;
     this.gutter = config.gutter;
@@ -39,9 +38,7 @@ class MagicGrid {
     this.useMin = config.useMin || false;
     this.useTransform = config.useTransform;
     this.animate = config.animate || false;
-    this.started = false;
-
-    this.init();
+    this.styledItems = new Set();
   }
 
   /**
@@ -49,22 +46,35 @@ class MagicGrid {
    *
    * @private
    */
-  init () {
-    if (!this.ready() || this.started) return;
+  initStyles () {
+    if (!this.ready()) return;
 
     this.container.style.position = "relative";
+    const items = this.items();
 
-    for (let i = 0; i < this.items.length; i++) {
-      let style = this.items[i].style;
+    for (let i = 0; i < items.length; i++) {
+      if (this.styledItems.has(items[i])) continue;
+
+      let style = items[i].style;
 
       style.position = "absolute";
   
       if (this.animate) {
         style.transition = `${this.useTransform ? "transform" : "top, left"} 0.2s ease`;
       }
-    }
 
-    this.started = true;
+      this.styledItems.add(items[i]);
+    }
+  }
+
+  /**
+   * Gets a collection of all items in a grid.
+   *
+   * @return {HTMLCollection}
+   * @private
+   */
+  items () {
+    return this.container.children;
   }
 
   /**
@@ -74,7 +84,7 @@ class MagicGrid {
    * @private
    */
   colWidth () {
-    return this.items[0].getBoundingClientRect().width + this.gutter;
+    return this.items()[0].getBoundingClientRect().width + this.gutter;
   }
 
   /**
@@ -130,12 +140,15 @@ class MagicGrid {
     let { cols, wSpace } = this.setup();
     let maxHeight = 0;
     let colWidth = this.colWidth();
+    let items = this.items();
 
     wSpace = Math.floor(wSpace / 2);
 
-    for (let i = 0; i < this.items.length; i++) {
+    this.initStyles();
+
+    for (let i = 0; i < items.length; i++) {
       let col = this.nextCol(cols, i);
-      let item = this.items[i];
+      let item = items[i];
       let topGutter = col.height ? this.gutter : 0;
       let left = col.index * colWidth + wSpace + "px";
       let top = col.height + topGutter + "px";
@@ -166,7 +179,7 @@ class MagicGrid {
    */
   ready () {
     if (this.static) return true;
-    return this.items.length >= this.size;
+    return this.items().length >= this.size;
   }
 
   /**
@@ -180,12 +193,10 @@ class MagicGrid {
   getReady () {
     let interval = setInterval(() => {
       this.container = document.querySelector(this.containerClass);
-      this.items = this.container.children;
 
       if (this.ready()) {
         clearInterval(interval);
 
-        this.init();
         this.listen();
       }
     }, 100);

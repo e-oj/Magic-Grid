@@ -62,9 +62,17 @@ declare class MagicGrid {
     *
     * @private
     */
-   private init(): void;
+   private initStyles(): void;
 
-   /**
+    /**
+     * Gets a collection of all items in a grid.
+     *
+     * @return {HTMLCollection}
+     * @private
+     */
+    private items (): void
+
+        /**
     * Calculates the width of a column.
     *
     * @return width of a column in the grid
