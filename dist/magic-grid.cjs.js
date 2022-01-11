@@ -12,14 +12,19 @@
  */
 var checkParams = function (config) {
   var DEFAULT_GUTTER = 25;
+  var booleanProps = ["useTransform", "center"];
+
 
   if (!config) {
     throw new Error("No config object has been provided.");
   }
 
-  if(typeof config.useTransform !== "boolean"){
-    config.useTransform = true;
+  for(var prop of booleanProps){
+    if(typeof config[prop] !== "boolean"){
+      config[prop] = true;
+    }
   }
+
 
   if(typeof config.gutter !== "number"){
     config.gutter = DEFAULT_GUTTER;
@@ -86,6 +91,7 @@ var MagicGrid = function MagicGrid (config) {
   this.useMin = config.useMin || false;
   this.useTransform = config.useTransform;
   this.animate = config.animate || false;
+  this.center = config.center;
   this.styledItems = new Set();
 };
 
@@ -192,7 +198,7 @@ MagicGrid.prototype.positionItems = function positionItems () {
   var colWidth = this.colWidth();
   var items = this.items();
 
-  wSpace = Math.floor(wSpace / 2);
+  wSpace = this.center ? Math.floor(wSpace / 2) : 0;
 
   this.initStyles();
 
@@ -218,7 +224,7 @@ MagicGrid.prototype.positionItems = function positionItems () {
     }
   }
 
-  this.container.style.height = maxHeight + "px";
+  this.container.style.height = maxHeight + this.gutter + "px";
 };
 
 /**

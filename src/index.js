@@ -38,10 +38,8 @@ class MagicGrid {
     this.useMin = config.useMin || false;
     this.useTransform = config.useTransform;
     this.animate = config.animate || false;
-    this.styledItems = new Set();
     this.center = config.center;
-
-    this.init();
+    this.styledItems = new Set();
   }
 
   /**
