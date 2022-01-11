@@ -39,6 +39,9 @@ class MagicGrid {
     this.useTransform = config.useTransform;
     this.animate = config.animate || false;
     this.styledItems = new Set();
+    this.center = config.center;
+
+    this.init();
   }
 
   /**
@@ -142,7 +145,7 @@ class MagicGrid {
     let colWidth = this.colWidth();
     let items = this.items();
 
-    wSpace = Math.floor(wSpace / 2);
+    wSpace = this.center ? Math.floor(wSpace / 2) : 0;
 
     this.initStyles();
 
@@ -168,7 +171,7 @@ class MagicGrid {
       }
     }
 
-    this.container.style.height = maxHeight + "px";
+    this.container.style.height = maxHeight + this.gutter + "px";
   }
 
   /**

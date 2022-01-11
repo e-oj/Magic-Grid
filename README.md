@@ -1,7 +1,11 @@
 [![MIT License](https://img.shields.io/npm/l/magic-grid.svg?style=for-the-badge)](https://www.npmjs.com/package/magic-grid)
-[![Version](https://img.shields.io/npm/v/magic-grid.svg?style=for-the-badge)](https://www.npmjs.com/package/magic-grid)
+[![Downloads](https://img.shields.io/npm/dt/magic-grid.svg?style=for-the-badge)](https://www.npmjs.com/package/magic-grid)
+<!--[![Version](https://img.shields.io/npm/v/magic-grid.svg?style=for-the-badge)](https://www.npmjs.com/package/magic-grid)-->
+
+<a href="https://www.buymeacoffee.com/e.oj" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="40px"></a>
 
 # Magic Grid [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Magic%20Grid%20-%20A%20simple,%20lightweight%20Javascript%20library%20for%20dynamic%20grid%20layouts.&url=https://github.com/e-oj/Magic-Grid&hashtags=MagicGrid,GridLayout,JS)
+
 ## A simple, lightweight Javascript library for dynamic grid layouts.
 
 Creating a dynamic grid layout has never been easier. With Magic Grid, all you have to do is specify a container and listen for changes. A few other configuration options are available for convenience but it's all very simple. Check it out live <b>[on JSFIDDLE](https://jsfiddle.net/eolaojo/4pov0rdf/)</b>. You can read about the implementation details <b>[on CodeBurst](https://codeburst.io/magic-grid-f8e2221e7cef)</b>.
@@ -10,7 +14,7 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 #### [Sample Usage](https://github.com/e-oj/Magic-Grid/blob/master/test/grid.html)
 
-<img src="http://drive.google.com/uc?export=view&id=172ESPZDwQIf7vLMelun-_4RaWD_-j94-" alt="demo" width="850"></img>
+<img src="https://drive.google.com/u/1/uc?id=1UaszcWA83aaLl0ZPAUtZW4K-qfuyJz7Z&export=download" alt="demo" width="850"></img>
 
 ### Why not CSS Grid?
 
@@ -115,9 +119,10 @@ let magicGrid = new MagicGrid({
   items: 30, // Required for dynamic content. Initial number of items in the container.
   gutter: 30, // Optional. Space between items. Default: 25(px).
   maxColumns: 5, // Optional. Maximum number of columns. Default: Infinite.
-  useMin: true, // Optional. Prioritize shorter columns when positioning items. Default: false.
-  useTransform: true // Optional. Position items using CSS transform. Default: True.
-  animate: true, // Optional. Animate item positioning. Default: false.
+  useMin: true, // Optional. Prioritize shorter columns when positioning items? Default: false.
+  useTransform: true, // Optional. Position items using CSS transform? Default: True.
+  animate: true, // Optional. Animate item positioning? Default: false.
+  center: true, //Optional. Center the grid items? Default: true. 
 });
 ```
 
