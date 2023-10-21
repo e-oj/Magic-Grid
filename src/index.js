@@ -154,6 +154,10 @@ class MagicGrid {
       let left = col.index * colWidth + wSpace + "px";
       let top = col.height + topGutter + "px";
 
+      if (!item.style.position || item.style.position !== 'absolute') {
+        item.style.position === 'absolute';
+      }
+
       if(this.useTransform){
         item.style.transform = `translate(${left}, ${top})`;
       }
