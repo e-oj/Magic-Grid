@@ -7,10 +7,8 @@
  * grid layout.
  */
 
-import {
-  checkParams,
-  getMin
-} from "./utils";
+import EventEmitter from "./EventEmitter.js";
+import { checkParams, getMin } from "./utils.js";
 
 class MagicGrid {
   /**
@@ -20,6 +18,7 @@ class MagicGrid {
    * @param config - configuration object
    */
   constructor (config) {
+    super();
     checkParams(config);
 
     if (config.container instanceof HTMLElement) {
@@ -169,8 +168,11 @@ class MagicGrid {
       }
     }
 
-    this.container.style.height = maxHeight + this.gutter + "px";
+    this.container.style.height = maxHeight + this.gutter + "px"
+    this.emit('positionComplete');
+
   }
+
 
   /**
    * Checks if every item has been loaded
@@ -224,6 +226,11 @@ class MagicGrid {
       this.positionItems();
     }
     else this.getReady();
+
+
+  }
+  onPositionComplete(callback) {
+    this.addListener('positionComplete', callback);
   }
 }
 

@@ -25,40 +25,47 @@
 </head>
 <body>
 
-  <div class="container">
-    <div class="item1">1</div>
-    <div class="item2">2</div>
-    <div class="item3">3</div>
-    <div class="item4">4</div>
-    <div class="item5">5</div>
-    <div class="item6">6</div>
-    <div class="item7">7</div>
-    <div class="item8">8</div>
-    <div class="item9">9</div>
-    <div class="item10">10</div>
-    <div class="item11">11</div>
-    <div class="item12">12</div>
-    <div class="item13">13</div>
-  </div>
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+  <div class="item6">6</div>
+  <div class="item7">7</div>
+  <div class="item8">8</div>
+  <div class="item9">9</div>
+  <div class="item10">10</div>
+  <div class="item11">11</div>
+  <div class="item12">12</div>
+  <div class="item13">13</div>
+</div>
 
-  <div>
-    <button onclick="addItems()">Add Items</button>
-    <button onclick="removeItems()">Remove Items</button>
-  </div>
+<div>
+  <button onclick="addItems()">Add Items</button>
+  <button onclick="removeItems()">Remove Items</button>
+</div>
 
-  <script src="../dist/magic-grid.min.js"></script>
-  <script src="./modify-items.js"></script>
-  <script>
-      const magicGrid = new MagicGrid({
-        container: '.container',
-        animate: true,
-        gutter: 30,
-        static: true,
-        useMin: true
-      });
+<script type="module">
+  import MagicGrid from '../src/index.js';
+  import { addItems, removeItems } from './modify-items.js';
 
-      magicGrid.listen();
-  </script>
+  const magicGrid = new MagicGrid({
+    container: '.container',
+    animate: true,
+    gutter: 30,
+    static: true,
+    useMin: true
+  });
 
+  magicGrid.onPositionComplete(() => {
+    console.log("Grid Has Been Resized");
+  });
+
+  magicGrid.listen();
+
+  window.addItems = addItems;
+  window.removeItems = removeItems;
+</script>
 </body>
 </html>
