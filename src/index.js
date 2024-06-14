@@ -9,8 +9,9 @@
 
 import EventEmitter from "./EventEmitter.js";
 import { checkParams, getMin } from "./utils.js";
+import {POSITIONING_COMPLETE_EVENT} from "./constant";
 
-class MagicGrid {
+class MagicGrid extends EventEmitter{
   /**
    * Initializes the necessary variables
    * for a magic grid.
@@ -229,8 +230,9 @@ class MagicGrid {
 
 
   }
+
   onPositionComplete(callback) {
-    this.addListener('positionComplete', callback);
+    this.addListener(POSITIONING_COMPLETE_EVENT, callback);
   }
 }
 
