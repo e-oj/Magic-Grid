@@ -41,6 +41,7 @@ class MagicGrid {
     this.center = config.center;
     this.styledItems = new Set();
     this.resizeObserver = null;
+    this.isPositioning = false;
   }
 
   /**
@@ -139,6 +140,13 @@ class MagicGrid {
    * the height of the grid.
    */
   positionItems () {
+
+   if(this.isPositioning){
+     return;
+   }
+
+    this.isPositioning = true;
+
     let { cols, wSpace } = this.setup();
     let maxHeight = 0;
     let colWidth = this.colWidth();
@@ -171,6 +179,7 @@ class MagicGrid {
     }
 
     this.container.style.height = maxHeight + this.gutter + "px";
+    this.isPositioning = false;
   }
 
   /**
@@ -208,7 +217,10 @@ class MagicGrid {
     if (this.resizeObserver) return;
 
     this.resizeObserver = new ResizeObserver(() => {
-      this.positionItems();
+      setTimeout(() => {
+        this.positionItems();
+      }, 200);
+
     });
 
     this.resizeObserver.observe(this.container);
@@ -221,18 +233,16 @@ class MagicGrid {
    */
   listen () {
     if (this.ready()) {
-      let timeout;
 
       window.addEventListener("resize", () => {
-        if (!timeout){
-          timeout = setTimeout(() => {
-            this.observeContainerResize();
-            this.positionItems();
-            timeout = null;
-          }, 200);
-        }
+
+        setTimeout(() => {
+          this.positionItems();
+        }, 200);
+
       });
 
+      this.observeContainerResize();
       this.positionItems();
     }
     else this.getReady();
