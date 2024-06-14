@@ -10,7 +10,7 @@
 import {
   checkParams,
   getMin
-} from "./utils";
+} from "./utils.js";
 
 class MagicGrid {
   /**
@@ -40,6 +40,7 @@ class MagicGrid {
     this.animate = config.animate || false;
     this.center = config.center;
     this.styledItems = new Set();
+    this.resizeObserver = null;
   }
 
   /**
@@ -203,6 +204,16 @@ class MagicGrid {
     }, 100);
   }
 
+  observeContainerResize() {
+    if (this.resizeObserver) return;
+
+    this.resizeObserver = new ResizeObserver(() => {
+      this.positionItems();
+    });
+
+    this.resizeObserver.observe(this.container);
+  }
+
   /**
    * Positions all the items and
    * repositions them whenever the
@@ -215,6 +226,7 @@ class MagicGrid {
       window.addEventListener("resize", () => {
         if (!timeout){
           timeout = setTimeout(() => {
+            this.observeContainerResize();
             this.positionItems();
             timeout = null;
           }, 200);
