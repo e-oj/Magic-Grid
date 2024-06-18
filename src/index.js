@@ -9,7 +9,8 @@
 
 import EventEmitter from "./EventEmitter.js";
 import { checkParams, getMin } from "./utils.js";
-import {POSITIONING_COMPLETE_EVENT} from "./constant";
+import {POSITIONING_COMPLETE_EVENT} from "./constant.js";
+import {REPOSITIONING_DELAY} from "./constant.js";
 
 class MagicGrid extends EventEmitter{
   /**
@@ -40,8 +41,6 @@ class MagicGrid extends EventEmitter{
     this.animate = config.animate || false;
     this.center = config.center;
     this.styledItems = new Set();
-    this.resizeObserver = null;
-    this.isPositioning = false;
   }
 
   /**
@@ -140,13 +139,6 @@ class MagicGrid extends EventEmitter{
    * the height of the grid.
    */
   positionItems () {
-
-   if(this.isPositioning){
-     return;
-   }
-
-    this.isPositioning = true;
-
     let { cols, wSpace } = this.setup();
     let maxHeight = 0;
     let colWidth = this.colWidth();
@@ -178,10 +170,11 @@ class MagicGrid extends EventEmitter{
       }
     }
 
-    this.container.style.height = maxHeight + this.gutter + "px";
-    this.isPositioning = false;
-    this.emit(POSITIONING_COMPLETE_EVENT);
+    this.container.style.height = maxHeight + this.gutter + "px"
+    this.emit('positionComplete');
+
   }
+
 
   /**
    * Checks if every item has been loaded
@@ -214,19 +207,6 @@ class MagicGrid extends EventEmitter{
     }, 100);
   }
 
-  observeContainerResize() {
-    if (this.resizeObserver) return;
-
-    this.resizeObserver = new ResizeObserver(() => {
-      setTimeout(() => {
-        this.positionItems();
-      }, 200);
-
-    });
-
-    this.resizeObserver.observe(this.container);
-  }
-
   /**
    * Positions all the items and
    * repositions them whenever the
@@ -234,19 +214,22 @@ class MagicGrid extends EventEmitter{
    */
   listen () {
     if (this.ready()) {
+      let timeout;
 
       window.addEventListener("resize", () => {
-
-        setTimeout(() => {
-          this.positionItems();
-        }, 200);
-
+        if (!timeout){
+          timeout = setTimeout(() => {
+            this.positionItems();
+            timeout = null;
+          }, REPOSITIONING_DELAY);
+        }
       });
 
-      this.observeContainerResize();
       this.positionItems();
     }
     else this.getReady();
+
+
   }
 
   onPositionComplete(callback) {
