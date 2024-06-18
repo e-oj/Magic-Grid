@@ -9,7 +9,7 @@
 
 import EventEmitter from "./EventEmitter.js";
 import { checkParams, getMin } from "./utils.js";
-import {POSITIONING_COMPLETE_EVENT} from "./constant";
+import {POSITIONING_COMPLETE_EVENT, REPOSITIONING_DELAY} from "./constant.js";
 
 class MagicGrid extends EventEmitter{
   /**
@@ -220,7 +220,7 @@ class MagicGrid extends EventEmitter{
     this.resizeObserver = new ResizeObserver(() => {
       setTimeout(() => {
         this.positionItems();
-      }, 200);
+      }, REPOSITIONING_DELAY);
 
     });
 
@@ -239,7 +239,7 @@ class MagicGrid extends EventEmitter{
 
         setTimeout(() => {
           this.positionItems();
-        }, 200);
+        }, REPOSITIONING_DELAY);
 
       });
 
