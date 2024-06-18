@@ -10,7 +10,7 @@
 import EventEmitter from "./EventEmitter.js";
 import { checkParams, getMin } from "./utils.js";
 import {POSITIONING_COMPLETE_EVENT} from "./constant.js";
-import {DELAY} from "./constant.js";
+import {REPOSITIONING_DELAY} from "./constant.js";
 
 class MagicGrid extends EventEmitter{
   /**
@@ -221,7 +221,7 @@ class MagicGrid extends EventEmitter{
           timeout = setTimeout(() => {
             this.positionItems();
             timeout = null;
-          }, DELAY);
+          }, REPOSITIONING_DELAY);
         }
       });
 
