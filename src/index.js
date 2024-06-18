@@ -9,7 +9,8 @@
 
 import EventEmitter from "./EventEmitter.js";
 import { checkParams, getMin } from "./utils.js";
-import {POSITIONING_COMPLETE_EVENT} from "./constant";
+import {POSITIONING_COMPLETE_EVENT} from "./constant.js";
+import {DELAY} from "./constant.js";
 
 class MagicGrid extends EventEmitter{
   /**
