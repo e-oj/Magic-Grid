@@ -220,7 +220,7 @@ class MagicGrid extends EventEmitter{
           timeout = setTimeout(() => {
             this.positionItems();
             timeout = null;
-          }, 200);
+          }, DELAY);
         }
       });
 
