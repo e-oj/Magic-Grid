@@ -61,7 +61,7 @@ class MagicGrid extends EventEmitter{
       let style = items[i].style;
 
       style.position = "absolute";
-  
+
       if (this.animate) {
         style.transition = `${this.useTransform ? "transform" : "top, left"} 0.2s ease`;
       }
@@ -141,9 +141,9 @@ class MagicGrid extends EventEmitter{
    */
   positionItems () {
 
-   if(this.isPositioning){
-     return;
-   }
+    if(this.isPositioning){
+      return;
+    }
 
     this.isPositioning = true;
 
@@ -250,7 +250,7 @@ class MagicGrid extends EventEmitter{
   }
 
   onPositionComplete(callback) {
-    this.addListener(POSITIONING_COMPLETE_EVENT, callback);
+    return this.addListener(POSITIONING_COMPLETE_EVENT, callback);
   }
 }
 
