@@ -6,39 +6,36 @@ class EventEmitter {
         emitter: takes in an event and handler
         handler: is the function it calls
     */
-    #listeners;
+    listeners;
     #idCounter
 
     constructor() {
-        this.#listeners = [];
+        this.listeners = [];
         this.#idCounter = 0;
     }
 
     removeListener(id) {
-        const i = this.#listeners.findIndex(listener => listener.getId() === id);
+        const i = this.listeners.findIndex(listener => listener.id === id);
         if(i !== -1){
-            this.#listeners.splice(i, 1);
-        }else{
-            throw new Error(`Listener with id ${id} does not exist`);
+            this.listeners.splice(i, 1);
+            return true;
         }
+        return false;
     }
 
     addListener(event,handler){
         let id = this.#idCounter++;
-        this.#listeners.push( new Listener(id, event,handler) );
+        this.listeners.push( new Listener(id, event,handler) );
         return id;
     }
 
     emit(event,payload){
-        for(const listener of this.#listeners){
-            if(listener.getEvent() === event){
-                listener.getHandler()(payload);
+        for(const listener of this.listeners){
+            if(listener.event === event){
+                listener.handler(payload);
             }
         }
     }
 
-    listenerCount(){
-        return this.#listeners.length;
-    }
 }
 export default EventEmitter;

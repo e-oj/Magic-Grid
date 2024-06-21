@@ -60,29 +60,29 @@
     /* -- (lazy) TESTING -- */
     let ids = [];
     let id;
+    //Add listeners to magic grid
     for(let i = 0; i < 5; i++){
         id = magicGrid.onPositionComplete(() => {
             console.log("Grid Has Been Resized");
         });
         ids.push(id);
     }
+
     console.log("IDs of listeners: ", ids);
+
+    //Wait to check that the event listeners are working and then remove them
     setTimeout(() => {  console.log('Removing listeners...');
         for(let i of ids){
-            try{
-                magicGrid.removeListener(i);
-            }catch(error){
-                console.log("Cannot remove listener that does not exist");
-            }
-            console.log("Listeners left ", magicGrid.listenerCount());
+            magicGrid.removeListener(i);
+            console.log("Listeners left ", magicGrid.listeners.length);
         }
-
+        //randomly pick an id to try and remove it
         id = Math.floor(Math.random() * ids.length);
-        try{
-            magicGrid.removeListener(id);
-        }catch(error){
-            console.log(`Cannot remove listener ${id} because it does not exist`);
-        }
+
+        let isRemoved = magicGrid.removeListener(id);
+        console.log(`Tried removing listener ${id}:`, isRemoved);
+        console.log("Listeners left ", magicGrid.listeners.length);
+
     }, 5000);
 
 

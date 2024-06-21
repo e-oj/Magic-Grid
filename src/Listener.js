@@ -1,25 +1,17 @@
 class Listener{
-    #id;
-    #event;
-    #handler;
+    /*
+     Listener class holds the event,
+     handler and a unique id
+     */
+    id;
+    event;
+    handler;
+
     constructor(id,event, handler){
-        this.#id = id;
-        this.#event = event;
-        this.#handler = handler;
+        this.id = id;
+        this.event = event;
+        this.handler = handler;
     }
-
-    getId(){
-        return this.#id;
-    }
-
-    getEvent(){
-        return this.#event;
-    }
-
-    getHandler(){
-        return this.#handler;
-    }
-
 
 }
 export default Listener;
