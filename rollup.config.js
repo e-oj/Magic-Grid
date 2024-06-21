@@ -1,8 +1,8 @@
-import resolve from "rollup-plugin-node-resolve";
-import commonjs from "rollup-plugin-commonjs";
-import buble from "rollup-plugin-buble";
-import uglify from "rollup-plugin-uglify-es";
-import pkg from "./package.json";
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import babel from "@rollup/plugin-babel";
+import terser from "@rollup/plugin-terser";
+import pkg from "./package.json" assert { type: "json" };
 
 export default [{
   input: "src/index.js",
@@ -14,11 +14,11 @@ export default [{
   plugins: [
     resolve(),
     commonjs(),
-    buble({ // transpile ES2015+ to ES5
-      exclude: ["node_modules/**"],
-      transforms: { forOf: false }
+    babel({
+      exclude: "node_modules/**",
+      babelHelpers: "bundled"
     }),
-    uglify()
+    terser()
   ]
 }, {
   input: "src/index.js",
@@ -27,9 +27,9 @@ export default [{
     { file: pkg.module, format: "es" }
   ],
   plugins: [
-    buble({
-      exclude: ["node_modules/**"],
-      transforms: { forOf: false }
+    babel({
+      exclude: "node_modules/**",
+      babelHelpers: "bundled"
     })
   ]
 }];
