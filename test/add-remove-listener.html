@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Magic Grid</title>
+
+    <style>
+        .container div {
+            width: 280px;
+            height: 500px;
+            background-color: antiquewhite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+        }
+
+        .container .item1 { height: 200px; }
+        .container .item4 { height: 800px; }
+        .container .item6 { height: 600px; }
+        .container .item11 { height: 400px; }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    <div class="item6">6</div>
+    <div class="item7">7</div>
+    <div class="item8">8</div>
+    <div class="item9">9</div>
+    <div class="item10">10</div>
+    <div class="item11">11</div>
+    <div class="item12">12</div>
+    <div class="item13">13</div>
+</div>
+
+<div>
+    <button onclick="addItems()">Add Items</button>
+    <button onclick="removeItems()">Remove Items</button>
+</div>
+
+<script type="module">
+    import MagicGrid from '../src/index.js';
+    import { addItems, removeItems } from './modify-items.js';
+
+    const magicGrid = new MagicGrid({
+        container: '.container',
+        animate: true,
+        gutter: 30,
+        static: true,
+        useMin: true
+    });
+    /* -- (lazy) TESTING -- */
+    let ids = [];
+    let id;
+    for(let i = 0; i < 5; i++){
+        id = magicGrid.onPositionComplete(() => {
+            console.log("Grid Has Been Resized");
+        });
+        ids.push(id);
+    }
+    console.log("IDs of listeners: ", ids);
+    setTimeout(() => {  console.log('Removing listeners...');
+        for(let i of ids){
+            try{
+                magicGrid.removeListener(i);
+            }catch(error){
+                console.log("Cannot remove listener that does not exist");
+            }
+            console.log("Listeners left ", magicGrid.listenerCount());
+        }
+
+        id = Math.floor(Math.random() * ids.length);
+        try{
+            magicGrid.removeListener(id);
+        }catch(error){
+            console.log(`Cannot remove listener ${id} because it does not exist`);
+        }
+    }, 5000);
+
+
+    magicGrid.listen();
+
+    window.addItems = addItems;
+    window.removeItems = removeItems;
+</script>
+</body>
+</html>
