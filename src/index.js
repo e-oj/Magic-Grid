@@ -61,7 +61,7 @@ class MagicGrid extends EventEmitter{
       let style = items[i].style;
 
       style.position = "absolute";
-  
+
       if (this.animate) {
         style.transition = `${this.useTransform ? "transform" : "top, left"} 0.2s ease`;
       }
@@ -171,7 +171,9 @@ class MagicGrid extends EventEmitter{
         item.style.left = left;
       }
 
-      col.height += item.getBoundingClientRect().height + topGutter;
+      if ( item.getBoundingClientRect().height > 0 ) {
+        col.height += item.getBoundingClientRect().height + topGutter;
+      }
 
       if(col.height > maxHeight){
         maxHeight = col.height;
