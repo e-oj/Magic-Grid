@@ -261,6 +261,7 @@ var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
    * @param config - configuration object
    */
   function MagicGrid(config) {
+    var _config$items;
     var _this;
     _classCallCheck(this, MagicGrid);
     _this = _callSuper(this, MagicGrid);
@@ -274,7 +275,7 @@ var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
     }
     _this.static = config.static || false;
     _this.size = config.size;
-    _this.items = config.items || _this.container.children;
+    _this.items = (_config$items = config.items) !== null && _config$items !== void 0 ? _config$items : _this.container.children;
     _this.gutter = config.gutter;
     _this.maxColumns = config.maxColumns || false;
     _this.useMin = config.useMin || false;

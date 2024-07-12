@@ -33,7 +33,7 @@ class MagicGrid extends EventEmitter{
 
     this.static = config.static || false;
     this.size = config.size;
-    this.items = config.items || this.container.children;
+    this.items = config.items ?? this.container.children;
     this.gutter = config.gutter;
     this.maxColumns = config.maxColumns || false;
     this.useMin = config.useMin || false;
