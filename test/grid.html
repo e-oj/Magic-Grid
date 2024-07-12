@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
   <title>Magic Grid</title>
-
   <style>
     .container div {
       width: 280px;
@@ -15,16 +13,13 @@
       align-items: center;
       border-radius: 8px;
     }
-
     .container .item1 { height: 200px; }
     .container .item4 { height: 800px; }
     .container .item6 { height: 600px; }
     .container .item11 { height: 400px; }
   </style>
-
 </head>
 <body>
-
 <div class="container">
   <div class="item1">1</div>
   <div class="item2">2</div>
@@ -40,14 +35,12 @@
   <div class="item12">12</div>
   <div class="item13">13</div>
 </div>
-
 <div>
   <button onclick="addItems()">Add Items</button>
   <button onclick="removeItems()">Remove Items</button>
 </div>
-
+<script src="../dist/magic-grid.min.js"></script>
 <script type="module">
-  import MagicGrid from '../src/index.js';
   import { addItems, removeItems } from './modify-items.js';
 
   const magicGrid = new MagicGrid({
