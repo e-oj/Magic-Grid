@@ -48,14 +48,9 @@
       </div>
     </div>
 
-    <div>
-      <button onclick="addItems()">Add Items</button>
-      <button onclick="removeItems()">Remove Items</button>
-    </div>
 
     <script type="module">
       import MagicGrid from "../src/index.js";
-      import { addItems, removeItems } from "./modify-items.js";
       const container = document.querySelector(".container");
       const magicGrid = new MagicGrid({
         container: container,
@@ -72,8 +67,6 @@
 
       magicGrid.listen();
 
-      window.addItems = addItems;
-      window.removeItems = removeItems;
     </script>
   </body>
 </html>
