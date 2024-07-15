@@ -16,7 +16,7 @@ class MagicGrid extends EventEmitter{
    * Initializes the necessary variables
    * for a magic grid.
    *
-   * @param config - configuration object
+   * @param {import("../index.d.ts").MagicGridProps} config
    */
   constructor (config) {
     super();
