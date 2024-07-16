@@ -25,14 +25,17 @@
   },
   "homepage": "https://github.com/e-oj/Magic-Grid#readme",
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-commonjs": "^26.0.1",
-    "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@jridgewell/sourcemap-codec": "^1.4.15",
     "@babel/core": "^7.20.0",
     "@babel/preset-env": "^7.20.0",
-    "rollup": "^4.18.0"
+    "@jridgewell/sourcemap-codec": "^1.4.15",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-eslint": "^9.0.5",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "prettier": "^3.3.3",
+    "rollup": "^4.18.0",
+    "rollup-plugin-prettier": "^4.1.1"
   },
   "type": "module"
 }
