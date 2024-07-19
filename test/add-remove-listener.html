@@ -46,18 +46,19 @@
     <button onclick="removeItems()">Remove Items</button>
 </div>
 
+<script src ="../dist/magic-grid.min.js"></script>
 <script type="module">
-    import MagicGrid from '../src/index.js';
+
     import { addItems, removeItems } from './modify-items.js';
 
-    const magicGrid = new MagicGrid({
-        container: '.container',
+    window.magicGrid = new MagicGrid({
+        container: document.querySelector('.container'),
         animate: true,
         gutter: 30,
         static: true,
         useMin: true
     });
-    /* -- (lazy) TESTING -- */
+    /!* -- (lazy) TESTING -- *!/
     let ids = [];
     let id;
     //Add listeners to magic grid
