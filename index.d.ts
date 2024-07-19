@@ -10,7 +10,8 @@
 export interface MagicGridProps{
   container: string | HTMLElement;
   static?: boolean;
-  items?: number;
+  size?: number;
+  items?: Element[];
   gutter?: number;
   maxColumns?: number;
   useMin?: boolean;

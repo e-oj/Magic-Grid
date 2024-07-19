@@ -1,5 +1,6 @@
 [![MIT License](https://img.shields.io/npm/l/magic-grid.svg?style=for-the-badge)](https://www.npmjs.com/package/magic-grid)
 [![Downloads](https://img.shields.io/npm/dt/magic-grid.svg?style=for-the-badge)](https://www.npmjs.com/package/magic-grid)
+
 <!--[![Version](https://img.shields.io/npm/v/magic-grid.svg?style=for-the-badge)](https://www.npmjs.com/package/magic-grid)-->
 
 # Magic Grid [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Magic%20Grid%20-%20A%20simple,%20lightweight%20Javascript%20library%20for%20dynamic%20grid%20layouts.&url=https://github.com/e-oj/Magic-Grid&hashtags=MagicGrid,GridLayout,JS)
@@ -26,12 +27,13 @@ Check out <b>[CSS Grid AMA's issue #19](https://github.com/rachelandrew/cssgrid-
 
 ### Ports
 
-| Repo | Author |
-|:--------|:-------|
-| [Vue-Magic-Grid](https://github.com/imlinus/Vue-Magic-Grid) | [@imlinus](https://github.com/imlinus) |
-| [Magic-Grid-React](https://github.com/IniZio/Magic-Grid-React) | [@IniZio](https://github.com/IniZio) |
+| Repo                                                           | Author                                 |
+| :------------------------------------------------------------- | :------------------------------------- |
+| [Vue-Magic-Grid](https://github.com/imlinus/Vue-Magic-Grid)    | [@imlinus](https://github.com/imlinus) |
+| [Magic-Grid-React](https://github.com/IniZio/Magic-Grid-React) | [@IniZio](https://github.com/IniZio)   |
 
 ### Getting Started
+
 #### Step 1
 
 Get Magic Grid via NPM:
@@ -41,6 +43,7 @@ npm install magic-grid
 ```
 
 Or CDN
+
 ```html
 <script src="https://unpkg.com/magic-grid/dist/magic-grid.cjs.js"></script>
 
@@ -53,11 +56,12 @@ Or CDN
 Import Magic Grid:
 
 ```javascript
-import MagicGrid from "magic-grid"
+import MagicGrid from "magic-grid";
 
 // or
 let MagicGrid = require("magic-grid");
 ```
+
 <br>
 
 You can also pull Magic Grid directly into your html
@@ -80,8 +84,11 @@ magicGrid.listen();
 ```
 
 ### Usage
+
 #### Static content:
+
 If your container doesn't have any dynamically loaded content i.e., all its child elements are always in the DOM, you should initialize the grid this way:
+
 ```javascript
 let magicGrid = new MagicGrid({
   container: "#container", // Required. Can be a class, id, or an HTMLElement.
@@ -93,11 +100,13 @@ magicGrid.listen();
 ```
 
 #### Dynamic content:
+
 If the container relies on data from an api, or experiences a delay, for whatever reason, before it can render its content in the DOM, you need to let the grid know the number of items to expect:
+
 ```javascript
 let magicGrid = new MagicGrid({
   container: "#container", // Required. Can be a class, id, or an HTMLElement.
-  items: 20, // For a grid with 20 items. Required for dynamic content.
+  size: 20, // For a grid with 20 items. Required for dynamic content.
   animate: true, // Optional.
 });
 
@@ -107,27 +116,32 @@ magicGrid.listen();
 ### API
 
 #### MagicGrid(config)
- > config (required): Configuration object
+
+> config (required): Configuration object
 
 The MagicGrid constructor. Initializes the grid with a configuration object.
+
 ```javascript
 let magicGrid = new MagicGrid({
   container: "#container", // Required. Can be a class, id, or an HTMLElement
   static: false, // Required for static content. Default: false.
-  items: 30, // Required for dynamic content. Initial number of items in the container.
+  size: 30, // Required for dynamic content. Initial number of items in the container.
+  items: nodes, // Optional. Useful if items are not direct descendants of container. Default: this.container.children
   gutter: 30, // Optional. Space between items. Default: 25(px).
   maxColumns: 5, // Optional. Maximum number of columns. Default: Infinite.
   useMin: true, // Optional. Prioritize shorter columns when positioning items? Default: false.
   useTransform: true, // Optional. Position items using CSS transform? Default: True.
   animate: true, // Optional. Animate item positioning? Default: false.
-  center: true, //Optional. Center the grid items? Default: true. 
+  center: true, //Optional. Center the grid items? Default: true.
 });
 ```
 
 ---
 
 #### .listen()
+
 Positions the items and listens for changes to the window size. All items are repositioned whenever the window is resized.
+
 ```javascript
 let magicGrid = new MagicGrid({
   container: "#container", // Required. Can be a class, id, or an HTMLElement
@@ -141,12 +155,13 @@ magicGrid.listen();
 ---
 
 #### .positionItems()
+
 This function is useful in cases where you have to manually trigger a repositioning; for instance, if a new element is added to the container.
 
 ```javascript
 let magicGrid = new MagicGrid({
   container: "#container", // Required. Can be a class, id, or an HTMLElement
-  items: 30, // Required for dynamic content.
+  size: 30, // Required for dynamic content.
   animate: true, // Optional
 });
 

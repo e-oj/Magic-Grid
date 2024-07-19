@@ -212,7 +212,7 @@ var checkParams = function checkParams(config) {
     config.gutter = DEFAULT_GUTTER;
   }
   if (!config.container) error("container");
-  if (!config.items && !config["static"]) error("items or static");
+  if (!config.items && !config.static) error("items or static");
 };
 
 /**
@@ -251,6 +251,7 @@ var getMin = function getMin(cols) {
 };
 
 var POSITIONING_COMPLETE_EVENT = "positionComplete";
+var REPOSITIONING_DELAY = 200;
 
 var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
   /**
@@ -260,6 +261,7 @@ var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
    * @param config - configuration object
    */
   function MagicGrid(config) {
+    var _config$items;
     var _this;
     _classCallCheck(this, MagicGrid);
     _this = _callSuper(this, MagicGrid);
@@ -271,8 +273,9 @@ var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
       _this.containerClass = config.container;
       _this.container = document.querySelector(config.container);
     }
-    _this["static"] = config["static"] || false;
-    _this.size = config.items;
+    _this.static = config.static || false;
+    _this.size = config.size;
+    _this.items = (_config$items = config.items) !== null && _config$items !== void 0 ? _config$items : _this.container.children;
     _this.gutter = config.gutter;
     _this.maxColumns = config.maxColumns || false;
     _this.useMin = config.useMin || false;
@@ -296,7 +299,7 @@ var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
     value: function initStyles() {
       if (!this.ready()) return;
       this.container.style.position = "relative";
-      var items = this.items();
+      var items = this.items;
       for (var i = 0; i < items.length; i++) {
         if (this.styledItems.has(items[i])) continue;
         var style = items[i].style;
@@ -309,18 +312,6 @@ var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
     }
 
     /**
-     * Gets a collection of all items in a grid.
-     *
-     * @return {HTMLCollection}
-     * @private
-     */
-  }, {
-    key: "items",
-    value: function items() {
-      return this.container.children;
-    }
-
-    /**
      * Calculates the width of a column.
      *
      * @return width of a column in the grid
@@ -329,7 +320,7 @@ var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
   }, {
     key: "colWidth",
     value: function colWidth() {
-      return this.items()[0].getBoundingClientRect().width + this.gutter;
+      return this.items[0].getBoundingClientRect().width + this.gutter;
     }
 
     /**
@@ -398,7 +389,7 @@ var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
         wSpace = _this$setup.wSpace;
       var maxHeight = 0;
       var colWidth = this.colWidth();
-      var items = this.items();
+      var items = this.items;
       wSpace = this.center ? Math.floor(wSpace / 2) : 0;
       this.initStyles();
       for (var i = 0; i < items.length; i++) {
@@ -432,8 +423,8 @@ var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
   }, {
     key: "ready",
     value: function ready() {
-      if (this["static"]) return true;
-      return this.items().length >= this.size;
+      if (this.static) return true;
+      return this.items.length >= this.size;
     }
 
     /**
@@ -464,7 +455,7 @@ var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
       this.resizeObserver = new ResizeObserver(function () {
         setTimeout(function () {
           _this3.positionItems();
-        }, 200);
+        }, REPOSITIONING_DELAY);
       });
       this.resizeObserver.observe(this.container);
     }
@@ -482,7 +473,7 @@ var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
         window.addEventListener("resize", function () {
           setTimeout(function () {
             _this4.positionItems();
-          }, 200);
+          }, REPOSITIONING_DELAY);
         });
         this.observeContainerResize();
         this.positionItems();

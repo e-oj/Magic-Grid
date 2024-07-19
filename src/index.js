@@ -16,7 +16,7 @@ class MagicGrid extends EventEmitter{
    * Initializes the necessary variables
    * for a magic grid.
    *
-   * @param config - configuration object
+   * @param {import("../index.d.ts").MagicGridProps} config
    */
   constructor (config) {
     super();
@@ -32,7 +32,8 @@ class MagicGrid extends EventEmitter{
     }
 
     this.static = config.static || false;
-    this.size = config.items;
+    this.size = config.size;
+    this.items = config.items ?? this.container.children;
     this.gutter = config.gutter;
     this.maxColumns = config.maxColumns || false;
     this.useMin = config.useMin || false;
@@ -53,7 +54,7 @@ class MagicGrid extends EventEmitter{
     if (!this.ready()) return;
 
     this.container.style.position = "relative";
-    const items = this.items();
+    const items = this.items;
 
     for (let i = 0; i < items.length; i++) {
       if (this.styledItems.has(items[i])) continue;
@@ -71,23 +72,13 @@ class MagicGrid extends EventEmitter{
   }
 
   /**
-   * Gets a collection of all items in a grid.
-   *
-   * @return {HTMLCollection}
-   * @private
-   */
-  items () {
-    return this.container.children;
-  }
-
-  /**
    * Calculates the width of a column.
    *
    * @return width of a column in the grid
    * @private
    */
   colWidth () {
-    return this.items()[0].getBoundingClientRect().width + this.gutter;
+    return this.items[0].getBoundingClientRect().width + this.gutter;
   }
 
   /**
@@ -150,7 +141,7 @@ class MagicGrid extends EventEmitter{
     let { cols, wSpace } = this.setup();
     let maxHeight = 0;
     let colWidth = this.colWidth();
-    let items = this.items();
+    let items = this.items;
 
     wSpace = this.center ? Math.floor(wSpace / 2) : 0;
 
@@ -191,7 +182,7 @@ class MagicGrid extends EventEmitter{
    */
   ready () {
     if (this.static) return true;
-    return this.items().length >= this.size;
+    return this.items.length >= this.size;
   }
 
   /**
