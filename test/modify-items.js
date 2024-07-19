@@ -37,4 +37,3 @@ function removeItems(numItems=10) {
   magicGrid.positionItems();
 }
 
-export { addItems, removeItems };

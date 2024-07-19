@@ -46,10 +46,9 @@
     <button onclick="removeItems()">Remove Items</button>
 </div>
 
-<script type="module">
-    import MagicGrid from '../src/index.js';
-    import { addItems, removeItems } from './modify-items.js';
-
+<script src="../dist/magic-grid.min.js"></script>
+<script src="./modify-items.js"></script>
+<script>
     const magicGrid = new MagicGrid({
         container: '.container',
         animate: true,
