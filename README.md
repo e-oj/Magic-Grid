@@ -173,7 +173,7 @@ const magicGrid = new MagicGrid({
   static: true, // Required for static content.
 });
 
-id = magicGrid.onPositionComplete(() => {
+const id = magicGrid.onPositionComplete(() => {
   console.log("Grid Has Been Resized"); // Example function
 });
 
