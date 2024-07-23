@@ -155,8 +155,6 @@ magicGrid.listen();
 // get data from api
 // append new element to DOM
 
-
-
 // reposition items
 magicGrid.positionItems();
 ```
