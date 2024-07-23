@@ -141,6 +141,7 @@ magicGrid.listen();
 Listener allows user to listen to container resizes.
 
 <img src="https://drive.google.com/file/d/1iKCvlUIkxpXJFmNpV0FiEW5YECrIw14K&export=download" alt="demo" width="850"></img>
+
 ---
 
 #### .positionItems()
