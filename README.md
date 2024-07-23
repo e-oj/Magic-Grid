@@ -160,3 +160,51 @@ magicGrid.positionItems();
 ```
 
 ---
+
+---
+
+#### Listen to container size changes
+This function is useful in cases that you need to add the ability to use grid inside resizable containers.
+
+
+```javascript
+class EventEmitter {
+    /*
+        array of emitter
+        emitter: takes in an event and handler
+        handler: is the function it calls
+    */
+    
+    listeners;
+    #idCounter;
+    
+    constructor() {
+        this.listeners = [];
+        this.#idCounter = 0;
+    }
+```
+
+---
+
+---
+
+#### Callback Function 
+This function is useful in cases that you need a way to check if the script is finished with calculating and rendering the new layout.
+
+
+```javascript
+onPositionComplete(callback) {
+    return this.addListener(POSITIONING_COMPLETE_EVENT, callback);
+}
+
+magicGrid.onPositionComplete(() => {
+    console.log("Grid Has Been Resized");
+});
+
+```
+
+---
+
+
+
+
