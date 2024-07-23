@@ -185,7 +185,7 @@ magicGrid.listen();
 
 ---
 
-#### .removeListener(ID)
+#### .removeListener(id)
 Allows the removal of any listener by its unique ID.
 
 ```javascript
