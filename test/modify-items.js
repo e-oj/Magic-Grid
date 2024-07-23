@@ -1,7 +1,4 @@
-/**
- * @author emmanuelolaojo
- * @since 2022-01-10
- */
+let magicGrid;
 
 function addItems(numItems=10) {
   const container = document.querySelector(".container");
@@ -18,9 +15,8 @@ function addItems(numItems=10) {
     newDiv.classList.add(`item${newNumber}`);
   }
 
-  magicGrid.positionItems();
-}
 
+}
 
 function removeItems(numItems=10) {
   const container = document.querySelector(".container");
@@ -34,7 +30,5 @@ function removeItems(numItems=10) {
     items[i].remove();
   }
 
-  magicGrid.positionItems();
 }
 
-export { addItems, removeItems };

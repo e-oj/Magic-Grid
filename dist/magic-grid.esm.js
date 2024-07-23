@@ -88,6 +88,14 @@ function _createForOfIteratorHelper(r, e) {
     }
   };
 }
+function _defineProperty(e, r, t) {
+  return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, {
+    value: t,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : e[r] = t, e;
+}
 function _getPrototypeOf(t) {
   return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) {
     return t.__proto__ || Object.getPrototypeOf(t);
@@ -145,7 +153,21 @@ function _unsupportedIterableToArray(r, a) {
   }
 }
 
-var _listeners = /*#__PURE__*/new WeakMap();
+var Listener = /*#__PURE__*/_createClass(function Listener(id, event, handler) {
+  _classCallCheck(this, Listener);
+  /*
+   Listener class holds the event,
+   handler and a unique id
+   */
+  _defineProperty(this, "id", void 0);
+  _defineProperty(this, "event", void 0);
+  _defineProperty(this, "handler", void 0);
+  this.id = id;
+  this.event = event;
+  this.handler = handler;
+});
+
+var _idCounter = /*#__PURE__*/new WeakMap();
 var EventEmitter = /*#__PURE__*/function () {
   function EventEmitter() {
     _classCallCheck(this, EventEmitter);
@@ -154,21 +176,35 @@ var EventEmitter = /*#__PURE__*/function () {
         emitter: takes in an event and handler
         handler: is the function it calls
     */
-    _classPrivateFieldInitSpec(this, _listeners, void 0);
-    _classPrivateFieldSet2(_listeners, this, []);
+    _defineProperty(this, "listeners", void 0);
+    _classPrivateFieldInitSpec(this, _idCounter, void 0);
+    this.listeners = [];
+    _classPrivateFieldSet2(_idCounter, this, 0);
   }
   return _createClass(EventEmitter, [{
+    key: "removeListener",
+    value: function removeListener(id) {
+      var i = this.listeners.findIndex(function (listener) {
+        return listener.id === id;
+      });
+      if (i !== -1) {
+        this.listeners.splice(i, 1);
+        return true;
+      }
+      return false;
+    }
+  }, {
     key: "addListener",
     value: function addListener(event, handler) {
-      _classPrivateFieldGet2(_listeners, this).push({
-        event: event,
-        handler: handler
-      });
+      var _this$idCounter, _this$idCounter2;
+      var id = (_classPrivateFieldSet2(_idCounter, this, (_this$idCounter = _classPrivateFieldGet2(_idCounter, this), _this$idCounter2 = _this$idCounter++, _this$idCounter)), _this$idCounter2);
+      this.listeners.push(new Listener(id, event, handler));
+      return id;
     }
   }, {
     key: "emit",
     value: function emit(event, payload) {
-      var _iterator = _createForOfIteratorHelper(_classPrivateFieldGet2(_listeners, this)),
+      var _iterator = _createForOfIteratorHelper(this.listeners),
         _step;
       try {
         for (_iterator.s(); !(_step = _iterator.n()).done;) {
@@ -251,6 +287,7 @@ var getMin = function getMin(cols) {
 };
 
 var POSITIONING_COMPLETE_EVENT = "positionComplete";
+var REPOSITIONING_DELAY = 200;
 
 var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
   /**
@@ -464,7 +501,7 @@ var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
       this.resizeObserver = new ResizeObserver(function () {
         setTimeout(function () {
           _this3.positionItems();
-        }, 200);
+        }, REPOSITIONING_DELAY);
       });
       this.resizeObserver.observe(this.container);
     }
@@ -482,7 +519,7 @@ var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
         window.addEventListener("resize", function () {
           setTimeout(function () {
             _this4.positionItems();
-          }, 200);
+          }, REPOSITIONING_DELAY);
         });
         this.observeContainerResize();
         this.positionItems();
@@ -491,7 +528,7 @@ var MagicGrid = /*#__PURE__*/function (_EventEmitter) {
   }, {
     key: "onPositionComplete",
     value: function onPositionComplete(callback) {
-      this.addListener(POSITIONING_COMPLETE_EVENT, callback);
+      return this.addListener(POSITIONING_COMPLETE_EVENT, callback);
     }
   }]);
 }(EventEmitter);
