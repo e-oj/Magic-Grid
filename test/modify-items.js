@@ -16,7 +16,7 @@ function addItems(numItems=10) {
   }
 
 
-
+}
 
 function removeItems(numItems=10) {
   const container = document.querySelector(".container");
