@@ -139,8 +139,9 @@ let magicGrid = new MagicGrid({
 magicGrid.listen();
 ```
 Listener allows user to listen to container resizes.
+![Untitled video - Made with Clipchamp (2) (1)](https://github.com/user-attachments/assets/2080b8ff-a925-4d9c-9973-005b8a09047c)
 
-<img src="https://drive.google.com/file/d/14qf5jgg1LVO_PnWEWmSd82yvvDZMQ5A8/view?usp=sharing" alt="demo" width="850"></img>
+
 ---
 
 #### .positionItems()
