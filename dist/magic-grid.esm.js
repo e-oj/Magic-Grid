@@ -43,7 +43,7 @@ function _createClass(e, r, t) {
 function _createForOfIteratorHelper(r, e) {
   var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
   if (!t) {
-    if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e  ) {
+    if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e) {
       t && (r = t);
       var n = 0,
         F = function () {};
@@ -135,7 +135,7 @@ function _toPrimitive(t, r) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
-    var i = e.call(t, r );
+    var i = e.call(t, r);
     if ("object" != typeof i) return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
