@@ -15,12 +15,8 @@ function addItems(numItems=10) {
     newDiv.classList.add(`item${newNumber}`);
   }
 
-  if (magicGrid) {
-    magicGrid.positionItems();
-  } else {
-    console.error("magicGrid is not defined");
-  }
-}
+
+
 
 function removeItems(numItems=10) {
   const container = document.querySelector(".container");
