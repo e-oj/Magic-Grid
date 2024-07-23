@@ -192,11 +192,10 @@ const magicGrid = new MagicGrid({
   static: true, // Required for static content.
 });
 
-id = magicGrid.onPositionComplete(() => {
-  console.log("Grid Has Been Resized"); // Example function
+const id = magicGrid.onPositionComplete(() => {
+  console.log("Grid Has Been Resized"); 
+  magicGrid.removeListener(id); // remove callback listener
 });
-
-magicGrid.removeListener(id); // remove callback listener
 
 magicGrid.listen();
 ```
