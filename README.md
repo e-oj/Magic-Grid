@@ -104,6 +104,82 @@ let magicGrid = new MagicGrid({
 magicGrid.listen();
 ```
 
+#### Resizable Containers:
+
+**CSS Properties:**
+
+The following CSS properties are applied to the `.container` class to allow resizing and ensure proper overflow handling:
+
+```css
+.container {
+    width: 80%;
+    resize: both; /* Allows the container to be resizable both horizontally and vertically */
+    overflow: auto; /* Ensures that overflowing content will be scrollable */
+    border: 2px solid #ccc;
+    padding: 10px;
+    margin: 20px auto;
+}
+```
+
+**JavaScript Functionality:**
+
+1. **`observeContainerResize` Method:**
+
+This method uses the `ResizeObserver` API to detect changes to the container's size. When the container is resized, the `positionItems` method is called to rearrange the items within the grid.
+
+```javascript
+observeContainerResize(){
+    if (this.resizeObserver) return;
+
+    this.resizeObserver = new ResizeObserver(() => {
+        setTimeout(() => {
+            this.positionItems();
+        }, REPOSITIONING_DELAY);
+    });
+
+    this.resizeObserver.observe(this.container);
+}
+```
+
+2. **Event Listeners:**
+
+An event listener for the window's `resize` event ensures that the grid items are repositioned whenever the window is resized. The `listen` method initializes these event listeners and positions the items initially.
+
+```javascript
+listen () {
+    if (this.ready()) {
+        window.addEventListener("resize", () => {
+            setTimeout(() => {
+                this.positionItems();
+            }, REPOSITIONING_DELAY);
+        });
+
+        this.observeContainerResize();
+        this.positionItems();
+    }
+    else this.getReady();
+}
+```
+
+**Example Initialization:**
+
+To initialize a `MagicGrid` instance and make use of the resizing functionality, you can set up your grid like this:
+
+```javascript
+document.addEventListener("DOMContentLoaded", function() {
+    const magicGrid = new MagicGrid({
+        container: '.container', // Required. Can be a class, id, or an HTMLElement.
+        animate: true, // Optional.
+        gutter: 30, // Optional. Space between items.
+        static: true, // Optional. If set to true, positions items immediately.
+        useMin: true // Optional. If set to true, uses the shortest column first.
+    });
+
+    magicGrid.listen();
+});
+```
+
+This setup ensures that the container is resizable and the grid items are repositioned dynamically based on the container's size changes.
 ### API
 
 #### MagicGrid(config)
