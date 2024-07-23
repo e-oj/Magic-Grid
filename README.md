@@ -141,8 +141,7 @@ magicGrid.listen();
 ---
 
 Listener allows user to listen to container resizes.
-
-<img src="https://drive.google.com/file/d/14qf5jgg1LVO_PnWEWmSd82yvvDZMQ5A8&export=download" alt="demo" width="850"></img>
+[Untitled video - Made with Clipchamp (2).mp4](..%2F..%2F..%2FPC%2FDownloads%2FUntitled%20video%20-%20Made%20with%20Clipchamp%20%282%29.mp4)
 
 #### .positionItems()
 This function is useful in cases where you have to manually trigger a repositioning; for instance, if a new element is added to the container.
