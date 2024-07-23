@@ -141,8 +141,6 @@ magicGrid.listen();
 Listener allows user to listen to container resizes.
 
 
-![yuh](https://github.com/user-attachments/assets/c4c3628d-91ac-458a-86a3-30b9f3453616){ .image25percent}
-
 
 ---
 
