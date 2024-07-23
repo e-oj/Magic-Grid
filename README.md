@@ -24,6 +24,7 @@ Check out <b>[CSS Grid AMA's issue #19](https://github.com/rachelandrew/cssgrid-
 
 > That's not something grid is designed for. Grid is two dimensional so you are always working in both rows and columns at the same time. You can't use grid to do a "masonry" style layout like that. You could place items in that way if you had a lot of rows and managed how many each spanned, but you can't use auto-placement to get that kind of layout.
 
+
 ### Ports
 
 | Repo | Author |
@@ -157,6 +158,45 @@ magicGrid.listen();
 
 // reposition items
 magicGrid.positionItems();
+```
+
+---
+
+#### .onPositionComplete(callback)
+Adds a listener used execute a function once all items in the grid have been properly positioned.
+
+```javascript
+const magicGrid = new MagicGrid({
+  container: '.container', // Required. Can be a class, id, or an HTMLElement
+  animate: true, // Optional
+  static: true, // Required for static content.
+});
+
+const id = magicGrid.onPositionComplete(() => {
+  console.log("Grid Has Been Resized"); // Example function
+});
+
+magicGrid.listen();
+```
+
+---
+
+#### .removeListener(ID)
+Allows the removal of any listener by its unique ID.
+
+```javascript
+const magicGrid = new MagicGrid({
+  container: '.container', // Required. Can be a class, id, or an HTMLElement
+  animate: true, // Optional
+  static: true, // Required for static content.
+});
+
+const id = magicGrid.onPositionComplete(() => {
+  console.log("Grid Has Been Resized"); 
+  magicGrid.removeListener(id); // remove callback listener
+});
+
+magicGrid.listen();
 ```
 
 ---
