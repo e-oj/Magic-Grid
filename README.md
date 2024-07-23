@@ -139,7 +139,7 @@ let magicGrid = new MagicGrid({
 magicGrid.listen();
 ```
 
-#### PREVIEW OF RESIZWE LISTEN
+#### Listners listen to changes in container size
 <a href="https://drive.google.com/file/d/1iKCvlUIkxpXJFmNpV0FiEW5YECrIw14K/view">
     <img src="https://drive.google.com/uc?id=1iKCvlUIkxpXJFmNpV0FiEW5YECrIw14K" alt="video thumbnail" width="850">
 </a>
