@@ -34,10 +34,5 @@ function removeItems(numItems=10) {
     items[i].remove();
   }
 
-  if (magicGrid) {
-    magicGrid.positionItems();
-  } else {
-    console.error("magicGrid is not defined");
-  }
 }
 
