@@ -140,6 +140,7 @@ magicGrid.listen();
 ```
 Listener allows user to listen to container resizes.
 
+![Untitled video - Made with Clipchamp (2) (1)](https://github.com/user-attachments/assets/b4cad0a6-3d7f-4c1f-a346-c1439a268202 | width = 850)
 
 ---
 
