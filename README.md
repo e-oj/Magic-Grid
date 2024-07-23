@@ -142,6 +142,10 @@ Listener allows user to listen to container resizes.
 
 
 
+
+https://github.com/user-attachments/assets/d36f5506-d218-48c3-b6c1-c511f3c98f87
+
+
 ---
 
 #### .positionItems()
