@@ -163,7 +163,7 @@ magicGrid.positionItems();
 
 ---
 
-### .onPositionComplete(callback)
+#### .onPositionComplete(callback)
 Adds a listener used execute a function once all items in the grid have been properly positioned.
 
 ```javascript
@@ -182,7 +182,7 @@ magicGrid.listen();
 
 ---
 
-### .removeListener(ID)
+#### .removeListener(ID)
 Allows the removal of any listener by its unique ID.
 
 ```javascript
