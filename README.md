@@ -155,8 +155,50 @@ magicGrid.listen();
 // get data from api
 // append new element to DOM
 
+
+
 // reposition items
 magicGrid.positionItems();
+```
+
+---
+
+### .onPositionComplete(callback)
+Adds a listener used execute a function once all items in the grid have been properly positioned.
+
+```javascript
+const magicGrid = new MagicGrid({
+  container: '.container', // Required. Can be a class, id, or an HTMLElement
+  animate: true, // Optional
+  static: true, // Required for static content.
+});
+
+id = magicGrid.onPositionComplete(() => {
+  console.log("Grid Has Been Resized"); // Example function
+});
+
+magicGrid.listen();
+```
+
+---
+
+### .removeListener(ID)
+Allows the removal of any listener by its unique ID.
+
+```javascript
+const magicGrid = new MagicGrid({
+  container: '.container', // Required. Can be a class, id, or an HTMLElement
+  animate: true, // Optional
+  static: true, // Required for static content.
+});
+
+id = magicGrid.onPositionComplete(() => {
+  console.log("Grid Has Been Resized"); // Example function
+});
+
+magicGrid.removeListener(id); // remove callback listener
+
+magicGrid.listen();
 ```
 
 ---
