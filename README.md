@@ -140,8 +140,7 @@ magicGrid.listen();
 ```
 Listener allows user to listen to container resizes.
 
-![resize.gif](..%2F..%2F..%2FDownloads%2FUntitled%20video%20-%20Made%20with%20Clipchamp%20%282%29.gif)
-
+<img src="https://drive.google.com/file/d/14qf5jgg1LVO_PnWEWmSd82yvvDZMQ5A8/view?usp=sharing" alt="demo" width="850"></img>
 ---
 
 #### .positionItems()
