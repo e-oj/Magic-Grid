@@ -2,8 +2,8 @@
   "name": "magic-grid",
   "version": "3.2.4",
   "description": "Super lightweight javascript library for dynamic grid layouts.",
-  "main": "dist/magic-grid.cjs.js",
-  "module": "dist/magic-grid.esm.js",
+  "main": "src/index.js",
+  "module": "src/index.js",
   "browser": "dist/magic-grid.min.js",
   "scripts": {
     "build": "rollup -c rollup.config.js"
@@ -25,14 +25,17 @@
   },
   "homepage": "https://github.com/e-oj/Magic-Grid#readme",
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-commonjs": "^26.0.1",
-    "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@jridgewell/sourcemap-codec": "^1.4.15",
     "@babel/core": "^7.20.0",
     "@babel/preset-env": "^7.20.0",
+    "@jridgewell/sourcemap-codec": "^1.4.15",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
     "rollup": "^4.18.0"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "magic-grid": "^3.3.4"
+  }
 }

@@ -7,9 +7,9 @@
  * grid layout.
  */
 
-import EventEmitter from "./EventEmitter.js";
-import { checkParams, getMin } from "./utils.js";
-import {POSITIONING_COMPLETE_EVENT, REPOSITIONING_DELAY} from "./constant.js";
+const EventEmitter =  require( "./EventEmitter.js");
+const { checkParams, getMin } = require("./utils.js");
+const {POSITIONING_COMPLETE_EVENT, REPOSITIONING_DELAY} = require("./constant.js");
 
 class MagicGrid extends EventEmitter{
   /**

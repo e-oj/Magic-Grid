@@ -72,6 +72,7 @@
     //Wait to check that the event listeners are working and then remove them
     setTimeout(() => {  console.log('Removing listeners...');
         for(let i of ids){
+
             magicGrid.removeListener(i);
             console.log("Listeners left ", magicGrid.listeners.length);
         }
