@@ -21,12 +21,4 @@ export default [{
     }),
     terser()
   ]
-}, {
-  input: "src/index.js",
-  plugins: [
-    babel({
-      exclude: "node_modules/**",
-      babelHelpers: "bundled"
-    })
-  ]
 }];
