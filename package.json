@@ -2,7 +2,7 @@
   "name": "magic-grid",
   "version": "3.3.4",
   "description": "Super lightweight javascript library for dynamic grid layouts.",
-  "main": "dist/magic-grid.cjs.js",
+  "main": "src/index.js",
   "module": "dist/magic-grid.esm.js",
   "browser": "dist/magic-grid.min.js",
   "scripts": {

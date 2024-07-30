@@ -1,5 +1,6 @@
 
-import Listener from "./Listener.js";
+const Listener = require("./Listener.js");
+
 class EventEmitter {
     /*
         array of emitter
