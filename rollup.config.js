@@ -1,8 +1,9 @@
-import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
-import babel from "@rollup/plugin-babel";
-import terser from "@rollup/plugin-terser";
-import pkg from "./package.json" assert { type: "json" };
+const resolve = require("@rollup/plugin-node-resolve");
+const commonjs = require("@rollup/plugin-commonjs");
+const babel = require("@rollup/plugin-babel");
+const terser = require("@rollup/plugin-terser");
+const pkg = require("./package.json");
+
 
 export default [{
   input: "src/index.js",
@@ -19,17 +20,5 @@ export default [{
       babelHelpers: "bundled"
     }),
     terser()
-  ]
-}, {
-  input: "src/index.js",
-  output: [
-    { file: pkg.main, format: "cjs" },
-    { file: pkg.module, format: "es" }
-  ],
-  plugins: [
-    babel({
-      exclude: "node_modules/**",
-      babelHelpers: "bundled"
-    })
   ]
 }];
