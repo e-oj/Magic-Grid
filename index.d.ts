@@ -1,68 +1,108 @@
 /**
- * main decleration file
+ * main declaration file
  *
- * @author zakaria harti
+ * @autor Star Olaojo
  */
 
 /**
  * configuration object of the MagicGrid constructor
  */
-export interface MagicGridProps{
-  container: string | HTMLElement;
-  static?: boolean;
-  items?: number;
-  gutter?: number;
-  maxColumns?: number;
-  useMin?: boolean;
-  useTransform?: boolean;
-  animate?: boolean;
+export interface MagicGridProps {
+    container: string | HTMLElement;
+    static?: boolean;
+    items?: number;
+    gutter?: number;
+    maxColumns?: number;
+    useMin?: boolean;
+    useTransform?: boolean;
+    animate?: boolean;
+    center?: boolean;
 }
 
-export default MagicGrid;
+/**
+ * Listener class
+ */
+declare class Listener {
+    id: number;
+    event: string;
+    handler: (payload?: any) => void;
+
+    constructor(id: number, event: string, handler: (payload?: any) => void);
+}
+
+/**
+ * EventEmitter class
+ */
+declare class EventEmitter {
+    listeners: Array<Listener>;
+    private idCounter: number;
+
+    constructor();
+
+    removeListener(id: number): boolean;
+
+    addListener(event: string, handler: (payload?: any) => void): number;
+
+    emit(event: string, payload?: any): void;
+}
 
 /**
  * MagicGrid class
  */
-declare class MagicGrid {
-  /**
-   * class constructor
-   *
-   * @param {object} config
-   */
-  constructor(config: MagicGridProps);
+declare class MagicGrid extends EventEmitter {
+    container: HTMLElement;
+    containerClass: string;
+    static: boolean;
+    size: number;
+    gutter: number;
+    maxColumns: number | false;
+    useMin: boolean;
+    useTransform: boolean;
+    animate: boolean;
+    center: boolean;
+    styledItems: Set<HTMLElement>;
+    resizeObserver: ResizeObserver | null;
+    isPositioning: boolean;
 
-  /**
-   * Positions all the items and
-   * repositions them whenever the
-   * window size changes.
-   *
-   * @returns {void}
-   */
-   listen(): void;
+    /**
+     * class constructor
+     *
+     * @param {MagicGridProps} config
+     */
+    constructor(config: MagicGridProps);
 
-  /**
-   * Position each items in the container
-   * based on their corresponding columns
-   * values.
-   *
-   * @returns {void}
-   */
-  positionItems(): void;
+    /**
+     * Positions all the items and
+     * repositions them whenever the
+     * window size changes.
+     *
+     * @returns {void}
+     */
+    listen(): void;
 
-  /**
-   * Checks if every items has been loaded
-   * in the dom.
-   *
-   * @return {Boolean} true if every items is present
-   */
-   ready(): boolean;
+    /**
+     * Position each item in the container
+     * based on their corresponding columns
+     * values.
+     *
+     * @returns {void}
+     */
+    positionItems(): void;
 
-   /**
-    * Initializes styles
-    *
-    * @private
-    */
-   private initStyles(): void;
+    /**
+     * Checks if every item has been loaded
+     * in the dom.
+     *
+     * @return {boolean} true if every item is present
+     */
+    ready(): boolean;
+
+    /**
+     * Initializes styles
+     *
+     * @private
+     */
+    private initStyles(): void;
 
     /**
      * Gets a collection of all items in a grid.
@@ -70,45 +110,57 @@ declare class MagicGrid {
      * @return {HTMLCollection}
      * @private
      */
-    private items (): void
+    private items(): HTMLCollection;
 
-        /**
-    * Calculates the width of a column.
-    *
-    * @return width of a column in the grid
-    * @private
-    */
-   private colWidth(): number;
+    /**
+     * Calculates the width of a column.
+     *
+     * @return {number} width of a column in the grid
+     * @private
+     */
+    private colWidth(): number;
 
-   /**
-    * Initializes an array of empty columns
-    * and calculates the leftover whitespace.
-    *
-    * @return {{cols: Array, wSpace: number}}
-    * @private
-    */
-   private setup(): object;
+    /**
+     * Initializes an array of empty columns
+     * and calculates the leftover whitespace.
+     *
+     * @return {{cols: Array<object>, wSpace: number}}
+     * @private
+     */
+    private setup(): { cols: Array<{ height: number; index: number }>; wSpace: number };
 
-   /**
-    * Gets the next available column.
-    *
-    * @param cols list of columns
-    * @param i index of dom element
-    *
-    * @return {*} next available column
-    * @private
-    */
-   private nextCol(cols: object[], i: number): object;
+    /**
+     * Gets the next available column.
+     *
+     * @param cols list of columns
+     * @param i index of dom element
+     *
+     * @return {object} next available column
+     * @private
+     */
+    private nextCol(cols: Array<{ height: number; index: number }>, i: number): { height: number; index: number };
 
-   /**
-    * Periodically checks that all items
-    * have been loaded in the dom. Calls
-    * this.listen() once all the items are
-    * present.
-    *
-    * @private
-    */
-   private getReady(): void;
+    /**
+     * Periodically checks that all items
+     * have been loaded in the dom. Calls
+     * this.listen() once all the items are
+     * present.
+     *
+     * @private
+     */
+    private getReady(): void;
+
+    /**
+     * Observes changes in the container size and repositions items
+     * @private
+     */
+    private observeContainerResize(): void;
+
+    /**
+     * Adds a callback for when positioning is complete
+     * @param callback - function to be called on positioning complete
+     */
+    onPositionComplete(callback: () => void): void;
 }
 
 /**
@@ -124,6 +176,8 @@ declare function checkParams(config: MagicGridProps): void;
  *
  * @param cols - list of columns
  *
- * @return longest column
+ * @return {object} shortest column
  */
-declare function getMin(cols: object[]): object;
+declare function getMin(cols: Array<{ height: number; index: number }>): { height: number; index: number };
+
+export default MagicGrid;
