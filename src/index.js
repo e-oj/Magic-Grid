@@ -254,4 +254,4 @@ class MagicGrid extends EventEmitter{
   }
 }
 
-export default MagicGrid;
+module.exports = MagicGrid;
