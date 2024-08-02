@@ -1,0 +1,29 @@
+.container div {
+    width: 280px;
+    height: 500px;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.container .item1 { height: 200px; }
+.container .item4 { height: 800px; }
+.container .item6 { height: 600px; }
+.container .item11 { height: 400px; }
+.container2 div {
+    width: 280px;
+    height: 500px;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.container2 .item1 { height: 200px; }
+.container2 .item4 { height: 800px; }
+.container2 .item6 { height: 600px; }
+.container2.item11 { height: 400px; }
+
