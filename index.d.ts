@@ -22,6 +22,7 @@ export interface MagicGridProps {
 /**
  * Listener class
  */
+
 declare class Listener {
     id: number;
     event: string;
