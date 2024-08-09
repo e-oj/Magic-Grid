@@ -12,7 +12,7 @@ const useMagicGrid = (props) => {
             const grid = new MagicGrid({ container: `.${props.containerClass}`, ...props, items: props.items || 1, static: false});
             const gridObject = new ReactObject(grid, props.containerClass);
             magicGrid.current = grid;
-            const newGrids = prevGrids => [...prevGrids, { id: props.containerClass, grid: grid }];
+            const newGrids = prevGrids => [...prevGrids, gridObject];
             setGrids(newGrids);
             grid.listen();
         }

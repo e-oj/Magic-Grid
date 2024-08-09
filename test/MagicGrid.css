@@ -1,7 +1,7 @@
 .container div {
     width: 280px;
     height: 500px;
-    background-color: antiquewhite;
+    background-color: #ffd2d2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +15,7 @@
 .container2 div {
     width: 280px;
     height: 500px;
-    background-color: antiquewhite;
+    background-color: #ffae95;
     display: flex;
     justify-content: center;
     align-items: center;
