@@ -1,7 +1,7 @@
 /**
  * main declaration file
  *
- * @autor Star Olaojo
+ * @author zakaria harti
  */
 
 /**
