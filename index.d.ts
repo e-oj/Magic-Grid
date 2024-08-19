@@ -78,7 +78,7 @@ declare class MagicGrid extends EventEmitter {
      *
      * @param container
      */
-    setContainer(container: HTMLElement)
+    setContainer(container: HTMLElement);
 
     /**
      * Positions all the items and
