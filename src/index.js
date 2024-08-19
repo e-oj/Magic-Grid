@@ -7,7 +7,7 @@
  * grid layout.
  */
 
-const EventEmitter = require("./EventEmitter.js");
+const EventEmitter = require("./event-emitter.js");
 const {checkParams, getMin} = require("./utils.js");
 const {POSITIONING_COMPLETE_EVENT, REPOSITIONING_DELAY} = require("./constant.js");
 
@@ -42,6 +42,19 @@ class MagicGrid extends EventEmitter{
     this.styledItems = new Set();
     this.resizeObserver = null;
     this.isPositioning = false;
+  }
+
+  /**
+   * Set a new container. Useful in cases where
+   * the container reference changes for any reason.
+   * @param container
+   */
+  setContainer(container){
+      const previousContainer =  this.container;
+      this.container = container;
+
+      this.resizeObserver.unobserve(previousContainer);
+      this.resizeObserver.observe(container);
   }
 
   /**

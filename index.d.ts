@@ -73,6 +73,14 @@ declare class MagicGrid extends EventEmitter {
     constructor(config: MagicGridProps);
 
     /**
+     * Set a new container. Useful in cases where
+     * the container reference changes for any reason.
+     *
+     * @param container
+     */
+    setContainer(container: HTMLElement)
+
+    /**
      * Positions all the items and
      * repositions them whenever the
      * window size changes.
