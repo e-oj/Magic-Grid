@@ -47,7 +47,8 @@ class MagicGrid extends EventEmitter{
   /**
    * Set a new container. Useful in cases where
    * the container reference changes for any reason.
-   * @param container
+   *
+   * @param container {HTMLElement}
    */
   setContainer(container){
       const previousContainer =  this.container;
