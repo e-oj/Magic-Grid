@@ -3,7 +3,6 @@
   "version": "3.4.2",
   "description": "Super lightweight javascript library for dynamic grid layouts.",
   "main": "src/index.js",
-  "browser": "dist/magic-grid.min.js",
   "scripts": {
     "build": "rollup -c rollup.config.js"
   },
