@@ -61,4 +61,7 @@ const getMin = cols => {
   return min;
 };
 
-export {checkParams, getMin};
+module.exports = {
+  checkParams,
+  getMin
+};

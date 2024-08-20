@@ -1,4 +1,4 @@
-class Listener{
+class Listener {
     /*
      Listener class holds the event,
      handler and a unique id
@@ -12,6 +12,6 @@ class Listener{
         this.event = event;
         this.handler = handler;
     }
-
 }
-export default Listener;
+
+module.exports = Listener;

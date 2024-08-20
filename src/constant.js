@@ -1,5 +1,4 @@
-export const POSITIONING_COMPLETE_EVENT = "positionComplete";
-export const REPOSITIONING_DELAY = 200;
-
-
-
+module.exports = {
+    POSITIONING_COMPLETE_EVENT: "positionComplete",
+    REPOSITIONING_DELAY: 200
+}

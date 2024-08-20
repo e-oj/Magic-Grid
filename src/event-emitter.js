@@ -2,11 +2,6 @@
 const Listener = require("./listener.js");
 
 class EventEmitter {
-    /*
-        array of emitter
-        emitter: takes in an event and handler
-        handler: is the function it calls
-    */
     listeners;
     #idCounter
 
@@ -39,4 +34,5 @@ class EventEmitter {
     }
 
 }
-export default EventEmitter;
+
+module.exports = EventEmitter;
