@@ -27,10 +27,10 @@ Check out <b>[CSS Grid AMA's issue #19](https://github.com/rachelandrew/cssgrid-
 
 ### Ports
 
-| Repo                                                        | Framework | Author                                 |
-|:------------------------------------------------------------|:----------|:---------------------------------------|
-| [use-magic-grid](https://github.com/e-oj/use-magic-grid)    | React     | [@e-oj](https://github.com/IniZio)     |
-| [Vue-Magic-Grid](https://github.com/imlinus/Vue-Magic-Grid) | Vue       | [@imlinus](https://github.com/imlinus) |
+| Repo                                                        | Framework | Authors                                                                                                                                                          |
+|:------------------------------------------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [use-magic-grid](https://github.com/e-oj/use-magic-grid)    | React     | [@e-oj](https://github.com/IniZio) [@Esstar612](https://github.com/Esstar612) [@SujiChen](https://github.com/SujiChen) [@yuguangl](https://github.com/yuguangl)  |
+| [Vue-Magic-Grid](https://github.com/imlinus/Vue-Magic-Grid) | Vue       | [@imlinus](https://github.com/imlinus)                                                                                                                           |
 
 ### Getting Started
 #### Step 1
