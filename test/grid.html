@@ -52,6 +52,10 @@
   });
 
   magicGrid.onPositionComplete(() => {
+    console.log("Grid Has Been Positioned");
+  });
+
+  magicGrid.onRepositionComplete(() => {
     console.log("Grid Has Been Resized");
   });
 

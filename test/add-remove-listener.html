@@ -61,7 +61,7 @@
     let id;
     //Add listeners to magic grid
     for(let i = 0; i < 5; i++){
-        id = magicGrid.onPositionComplete(() => {
+        id = magicGrid.onRepositionComplete(() => {
             console.log("Grid Has Been Resized");
         });
         ids.push(id);

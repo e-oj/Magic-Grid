@@ -9,7 +9,7 @@
 
 const EventEmitter = require("./event-emitter.js");
 const {checkParams, getMin} = require("./utils.js");
-const {POSITIONING_COMPLETE_EVENT, REPOSITIONING_DELAY} = require("./constant.js");
+const {POSITIONING_COMPLETE_EVENT, REPOSITIONING_COMPLETE_EVENT, REPOSITIONING_DELAY} = require("./constant.js");
 
 class MagicGrid extends EventEmitter{
   /**
@@ -194,7 +194,7 @@ class MagicGrid extends EventEmitter{
 
     this.container.style.height = maxHeight + this.gutter + "px";
     this.isPositioning = false;
-    this.emit(POSITIONING_COMPLETE_EVENT);
+    this.emit(REPOSITIONING_COMPLETE_EVENT);
   }
 
   /**
@@ -259,12 +259,17 @@ class MagicGrid extends EventEmitter{
 
       this.observeContainerResize();
       this.positionItems();
+      this.emit(POSITIONING_COMPLETE_EVENT);
     }
     else this.getReady();
   }
 
   onPositionComplete(callback) {
     return this.addListener(POSITIONING_COMPLETE_EVENT, callback);
+  }
+
+  onRepositionComplete(callback) {
+    return this.addListener(REPOSITIONING_COMPLETE_EVENT, callback);
   }
 }
 

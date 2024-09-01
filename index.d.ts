@@ -169,7 +169,13 @@ declare class MagicGrid extends EventEmitter {
      * Adds a callback for when positioning is complete
      * @param callback - function to be called on positioning complete
      */
-    onPositionComplete(callback: () => void): void;
+    onPositionComplete(callback: () => void): number;
+
+     /**
+     * Adds a callback for when repositioning is complete
+     * @param callback - function to be called on repositioning complete
+     */
+     onRepositionComplete(callback: () => void): number;
 }
 
 /**

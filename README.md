@@ -164,7 +164,7 @@ magicGrid.positionItems();
 ---
 
 #### .onPositionComplete(callback)
-Adds a listener used execute a function once all items in the grid have been properly positioned.
+Adds a listener that executes a function once all items in the grid have been properly positioned for the first time.
 
 ```javascript
 const magicGrid = new MagicGrid({
@@ -174,6 +174,25 @@ const magicGrid = new MagicGrid({
 });
 
 const id = magicGrid.onPositionComplete(() => {
+  console.log("Grid Has Been Positioned"); // Example function
+});
+
+magicGrid.listen();
+```
+
+---
+
+#### .onRepositionComplete(callback)
+Adds a listener that executes a function once the `positionItems()` method has been called or after the container has been resized.
+
+```javascript
+const magicGrid = new MagicGrid({
+  container: '.container', // Required. Can be a class, id, or an HTMLElement
+  animate: true, // Optional
+  static: true, // Required for static content.
+});
+
+const id = magicGrid.onRepositionComplete(() => {
   console.log("Grid Has Been Resized"); // Example function
 });
 
