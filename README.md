@@ -142,7 +142,7 @@ magicGrid.listen();
 </a>
 ---
 
-#### .positionItems()
+#### .repositionItems()
 This function is useful in cases where you have to manually trigger a repositioning; for instance, if a new element is added to the container.
 
 ```javascript
@@ -158,7 +158,7 @@ magicGrid.listen();
 // append new element to DOM
 
 // reposition items
-magicGrid.positionItems();
+magicGrid.repositionItems();
 ```
 
 ---
@@ -183,7 +183,7 @@ magicGrid.listen();
 ---
 
 #### .onRepositionComplete(callback)
-Adds a listener that executes a function once the `positionItems()` method has been called or after the container has been resized.
+Adds a listener that executes a function once the `repositionItems()` method has been called or after the container has been resized.
 
 ```javascript
 const magicGrid = new MagicGrid({

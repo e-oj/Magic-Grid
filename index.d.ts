@@ -95,8 +95,16 @@ declare class MagicGrid extends EventEmitter {
      * values.
      *
      * @returns {void}
+     * @private
      */
     positionItems(): void;
+
+    /**
+     * Repositions the items in the grid.
+     *
+     * @returns {void}
+     */
+    repositionItems(): void;
 
     /**
      * Checks if every item has been loaded
