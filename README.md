@@ -12,7 +12,7 @@ Creating a dynamic grid layout has never been easier. With Magic Grid, all you h
 
 #### [Sample Usage](https://github.com/e-oj/Magic-Grid/blob/master/test/grid.html)
 
-<img src="https://drive.google.com/u/1/uc?id=1UaszcWA83aaLl0ZPAUtZW4K-qfuyJz7Z&export=download" alt="demo" width="850"></img>
+<img src="https://drive.google.com/u/1/uc?id=1UaszcWA83aaLl0ZPAUtZW4K-qfuyJz7Z" alt="demo" width="850"></img>
 
 ### Why not CSS Grid?
 
