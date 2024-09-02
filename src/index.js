@@ -185,7 +185,9 @@ class MagicGrid extends EventEmitter{
         item.style.left = left;
       }
 
-      col.height += item.getBoundingClientRect().height + topGutter;
+      if ( item.getBoundingClientRect().height > 0 ) {
+        col.height += item.getBoundingClientRect().height + topGutter;
+      }
 
       if(col.height > maxHeight){
         maxHeight = col.height;
