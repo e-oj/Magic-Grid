@@ -51,11 +51,11 @@
     useMin: true
   });
 
-  magicGrid.onPositionComplete(() => {
-    console.log("Grid Has Been Positioned");
+  magicGrid.onReady(() => {
+    console.log("Grid is ready");
   });
 
-  magicGrid.onRepositionComplete(() => {
+  magicGrid.onPositionComplete(() => {
     console.log("Grid Has Been Resized");
   });
 

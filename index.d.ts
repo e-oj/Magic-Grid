@@ -166,16 +166,16 @@ declare class MagicGrid extends EventEmitter {
     private observeContainerResize(): void;
 
     /**
+    * Adds a callback for when the grid is ready
+    * @param callback - function to be called on grid ready
+    */
+    onReady(callback: () => void): number;
+
+    /**
      * Adds a callback for when positioning is complete
      * @param callback - function to be called on positioning complete
      */
     onPositionComplete(callback: () => void): number;
-
-     /**
-     * Adds a callback for when repositioning is complete
-     * @param callback - function to be called on repositioning complete
-     */
-     onRepositionComplete(callback: () => void): number;
 }
 
 /**

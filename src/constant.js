@@ -1,5 +1,5 @@
 module.exports = {
     POSITIONING_COMPLETE_EVENT: "positionComplete",
-    REPOSITIONING_COMPLETE_EVENT: "repositionComplete",
+    READY_EVENT: "gridReady",
     REPOSITIONING_DELAY: 200
 }
