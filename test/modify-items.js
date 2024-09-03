@@ -13,7 +13,7 @@ function addItems(numItems= 10) {
     newDiv.classList.add(`item${newNumber}`);
   }
 
-  magicGrid.repositionItems();
+  magicGrid.positionItems();
 }
 
 function removeItems(numItems = 10) {
@@ -27,6 +27,6 @@ function removeItems(numItems = 10) {
   for (let i = lastIndex; i > stopIndex; i--){
     items[i].remove();
   }
-  magicGrid.repositionItems();
+  magicGrid.positionItems();
 }
 

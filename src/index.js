@@ -152,8 +152,6 @@ class MagicGrid extends EventEmitter{
    * on their corresponding column's height
    * and index then stretches the container to
    * the height of the grid.
-   * 
-   * @private
    */
   positionItems () {
 
@@ -196,14 +194,6 @@ class MagicGrid extends EventEmitter{
 
     this.container.style.height = maxHeight + this.gutter + "px";
     this.isPositioning = false;
-  }
-
-  /**
-   * Same as positionItems(),
-   * but emits an event when done
-   */
-  repositionItems () {
-    this.positionItems();
     this.emit(REPOSITIONING_COMPLETE_EVENT);
   }
 
@@ -243,7 +233,7 @@ class MagicGrid extends EventEmitter{
 
     this.resizeObserver = new ResizeObserver(() => {
       setTimeout(() => {
-        this.repositionItems();
+        this.positionItems();
       }, REPOSITIONING_DELAY);
 
     });
@@ -262,7 +252,7 @@ class MagicGrid extends EventEmitter{
       window.addEventListener("resize", () => {
 
         setTimeout(() => {
-          this.repositionItems();
+          this.positionItems();
         }, REPOSITIONING_DELAY);
 
       });
