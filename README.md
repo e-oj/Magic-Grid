@@ -163,8 +163,28 @@ magicGrid.positionItems();
 
 ---
 
+#### .onReady(callback)
+Adds a listener that executes a function once the grid is ready.
+
+```javascript
+const magicGrid = new MagicGrid({
+  container: '.container', // Required. Can be a class, id, or an HTMLElement
+  animate: true, // Optional
+  static: true, // Required for static content.
+});
+
+const id = magicGrid.onReady(() => {
+  console.log("Grid is ready");
+});
+
+magicGrid.listen();
+```
+
+---
+
 #### .onPositionComplete(callback)
-Adds a listener used execute a function once all items in the grid have been properly positioned.
+Adds a listener that executes a function whenever `positionItems` is called. 
+**Note: `positionItems` is called during initial setup and whenever the container or window is resized**
 
 ```javascript
 const magicGrid = new MagicGrid({
