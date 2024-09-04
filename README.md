@@ -183,7 +183,8 @@ magicGrid.listen();
 ---
 
 #### .onPositionComplete(callback)
-Adds a listener that executes a function once the `positionItems()` method has been called or after the container has been resized.
+Adds a listener that executes a function whenever `positionItems` is called. 
+**Note: `positionItems` is called during initial setup and whenever the container or window is resized**
 
 ```javascript
 const magicGrid = new MagicGrid({
